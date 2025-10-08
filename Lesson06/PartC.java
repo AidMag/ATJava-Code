@@ -12,8 +12,11 @@ public class PartC {
         double a = 1.2; 
         double b= 3.0;
         double c = a * b; 
+
+        //This is the threshold that the rounding error must pass in order to be considered equal
         final double Threshold = 1e-14;
 
+        // Math.abs() finds the differnce and makes sure it is within threshold for being considered the same number
         if(Math.abs(c-3.6) < Threshold){
         System.out.println("c is 3.6");
         } else {
