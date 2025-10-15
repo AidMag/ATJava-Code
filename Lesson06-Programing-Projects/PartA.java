@@ -9,13 +9,16 @@ public class PartA {
         
         Scanner in = new Scanner(System.in);
 
+        //Getting values for variables
         System.out.print("Enter a temperature and a 'C' for Celsius or 'F' for Fahrenheit: ");
         double temp = in.nextDouble();
         char system = in.next().charAt(0);
         
+        // declearing variable
         char C = 'C';
         char F = 'F';
 
+        //Cascade of if else
         if (system == C) {
             if (temp == 100) {
                 System.out.printf("At a temperature of %.2f C, water is boiling.", temp);
