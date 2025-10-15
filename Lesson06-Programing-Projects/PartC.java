@@ -12,5 +12,13 @@ import java.util.Scanner;
 public class PartC {
     public static void main(String[] args) {
         
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter three strings: ");
+        String name1 = in.nextLine();
+        String name2 = in.nextLine();
+        String name3 = in.nextLine();
+
+        
     }
 }
