@@ -20,7 +20,7 @@ public class PartD {
         //division to make it look better
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
 
-        //If statments to determine, calculate and print the costs
+        //If-else cascade to determine, calculate and print the costs
         if (num_cookies > 6 && num_cookies < 13) {
             double discount1 = (COOKIES * num_cookies) * 0.975;
             System.out.printf("Your total cost is %.2f%n", discount1);
