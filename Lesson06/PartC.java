@@ -17,7 +17,7 @@ public class PartC {
         final double Threshold = 1e-14;
 
         // Math.abs() finds the differnce and makes sure it is within threshold for being considered the same number
-        if(Math.abs(c-3.6) < Threshold){
+        if(Math.abs(c - 3.6) < Threshold) {
         System.out.println("c is 3.6");
         } else {
         System.out.println("c is not 3.6");
