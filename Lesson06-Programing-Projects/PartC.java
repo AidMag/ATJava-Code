@@ -14,7 +14,7 @@ public class PartC {
         
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Enter three strings: ");
+        System.out.print("Enter three words: ");
         String name1 = in.nextLine();
         String name2 = in.nextLine();
         String name3 = in.nextLine();
