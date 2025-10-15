@@ -1,11 +1,5 @@
 /*
-Write a program that reads in two floating-point numbers and tests whether they are the same up to two decimal places. 
-Here are two sample runs.
-Enter two floating-point numbers: 2.0 1.99998
-They are the same up to two decimal places.
-Enter two floating-point numbers: 2.0 1.98999
-They are different.
-
+Aidan
  */
 
 import java.util.Scanner;
@@ -13,5 +7,19 @@ import java.util.Scanner;
 public class PartB {
     public static void main(String[] args) {
         
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter two floating-point numbers: ");
+        double num_1 = in.nextDouble();
+        double num_2 = in.nextDouble();
+
+        final double THRESHOLD = 1e-2;
+
+        if (Math.abs(num_1 - num_2) < THRESHOLD) {
+            System.out.print("They are the same up to two decimal places.");
+        } else {
+            System.out.print("They are different up to two decimal places.");
+        }
+        in.close();
     }
 }
