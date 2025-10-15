@@ -16,31 +16,31 @@ public class PartA {
 
         System.out.print("Enter a temperature and a 'C' for Celsius or 'F' for Fahrenheit: ");
         double temp = in.nextDouble();
-        String system = in.next();
+        char system = in.next().charAt(0);
         
-        String C = "C";
-        String F = "F";
+        char C = 'C';
+        char F = 'F';
 
-        if (C == system) {
+        if (system == C) {
             if (temp == 100) {
-                System.out.printf("At a temperature of %.2f C, water is boiling.");
+                System.out.printf("At a temperature of %.2f C, water is boiling.", temp);
             } else if (temp > 100){
-                System.out.printf("At a temperature of %.2f C, water is in a gaseous state (i.e., steam).");
+                System.out.printf("At a temperature of %.2f C, water is in a gaseous state (i.e., steam).", temp);
             } else if (temp < 100 && temp > 0) {
-                System.out.printf("At a temperature of %.2f C, water is liquid.");
+                System.out.printf("At a temperature of %.2f C, water is liquid.", temp);
             } else if (temp <= 0) {
-                System.out.printf("At a temerature of %.2f C, water is frozen.");
+                System.out.printf("At a temerature of %.2f C, water is frozen.", temp);
             }
         }
-        if (F == system) {
+        if (system == F) {
             if (temp == 212) {
-                System.out.printf("At a temperature of %.2f F, water is boiling.");
+                System.out.printf("At a temperature of %.2f F, water is boiling.", temp);
             } else if (temp > 212){
-                System.out.printf("At a temperature of %.2f F, water is in a gaseous state (i.e., steam).");
+                System.out.printf("At a temperature of %.2f F, water is in a gaseous state (i.e., steam).", temp);
             } else if (temp < 212 && temp > 32) {
-                System.out.printf("At a temperature of %.2f F, water is liquid.");
+                System.out.printf("At a temperature of %.2f F, water is liquid.", temp);
             } else if (temp <= 32) {
-                System.out.printf("At a temerature of %.2f F, water is frozen.");
+                System.out.printf("At a temerature of %.2f F, water is frozen.", temp);
             }
         }
 
