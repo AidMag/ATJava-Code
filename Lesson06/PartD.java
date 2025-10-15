@@ -30,7 +30,10 @@ public class PartD {
         } else if (num_cookies > 24) {
             double discount3 = (COOKIES * num_cookies) * 0.85;
             System.out.printf("Your total cost is %.2f%n", discount3);
-        }   
+        }  else {
+            double cost = COOKIES * num_cookies;
+            System.out.printf("Your total cost is %.2f%n", cost);
+        }
 
         in.close();
     }
