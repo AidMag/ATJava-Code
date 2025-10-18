@@ -39,7 +39,7 @@ public class PartA {
                 cost = cost * 0.95;
             } else if (age >= 50){
                 cost = cost * 0.925;
-            } else if (age > 13 && age <= 49){ //something wrong here
+            } else if (age > 13 && age <= 49){ 
                 cost = cost;
             }
         }
