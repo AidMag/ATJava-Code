@@ -13,7 +13,7 @@ public class PartDAT {
         int num = 0;
 
         System.out.print("Enter a number (1-3999): ");
-        if (!in.hasNextInt() || in.hasNextFloat()) {
+        if (!in.hasNextInt()) {
             System.err.printf("ERROR: Not an integer. %nTerminating program");
             return;
         } else {
@@ -27,7 +27,7 @@ public class PartDAT {
 
         switch (num / 1000) {
             case 1:
-                System.out.println("M");
+                System.out.print("M");
                 break;
             case 2:
                 System.out.println("MM");
