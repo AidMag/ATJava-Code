@@ -30,10 +30,10 @@ public class PartDAT {
                 System.out.print("M");
                 break;
             case 2:
-                System.out.println("MM");
+                System.out.print("MM");
                 break;
             case 3:
-                System.out.println("MMM");
+                System.out.print("MMM");
                 break;
         }
 
@@ -41,31 +41,31 @@ public class PartDAT {
 
         switch (num / 100) {
             case 1:
-                System.out.println("C");
+                System.out.print("C");
                 break;
             case 2:
-                System.out.println("CC");
+                System.out.print("CC");
                 break;
             case 3:
-                System.out.println("CCC");
+                System.out.print("CCC");
                 break;
             case 4:
-                System.out.println("CD");
+                System.out.print("CD");
                 break;
             case 5:
-                System.out.println("D");
+                System.out.print("D");
                 break;
             case 6:
-                System.out.println("DC");
+                System.out.print("DC");
                 break;
             case 7:
-                System.out.println("DCC");
+                System.out.print("DCC");
                 break;
             case 8:
-                System.out.println("DCCC");
+                System.out.print("DCCC");
                 break;
             case 9:
-                System.out.println("CM");
+                System.out.print("CM");
                 break;
         }
 
@@ -73,62 +73,62 @@ public class PartDAT {
 
         switch (num / 10) {
             case 1:
-                System.out.println("X");
+                System.out.print("X");
                 break;
             case 2:
-                System.out.println("XX");
+                System.out.print("XX");
                 break;
             case 3:
-                System.out.println("XXX");
+                System.out.print("XXX");
                 break;
             case 4:
-                System.out.println("XL");
+                System.out.print("XL");
                 break;
             case 5:
-                System.out.println("L");
+                System.out.print("L");
                 break;
             case 6:
-                System.out.println("LX");
+                System.out.print("LX");
                 break;
             case 7:
-                System.out.println("LXX");
+                System.out.print("LXX");
                 break;
             case 8:
-                System.out.println("LXXX");
+                System.out.print("LXXX");
                 break;
             case 9:
-                System.out.println("XC");
+                System.out.print("XC");
         }
 
         num = num - ((num / 10) * 10);
 
         switch (num) {
             case 1:
-                System.out.println("I");
+                System.out.print("I");
                 break;
             case 2:
-                System.out.println("II");
+                System.out.print("II");
                 break;                
             case 3:
-                System.out.println("III");
+                System.out.print("III");
                 break;            
             case 4:
-                System.out.println("IV");
+                System.out.print("IV");
                 break;            
             case 5:
-                System.out.println("V");
+                System.out.print("V");
                 break;            
             case 6:
-                System.out.println("VI");
+                System.out.print("VI");
                 break;            
             case 7:
-                System.out.println("VII");
+                System.out.print("VII");
                 break;
             case 8:
-                System.out.println("VIII");
+                System.out.print("VIII");
                 break;
             case 9:
-                System.out.println("IX");
+                System.out.print("IX");
                 break;
         }
 
