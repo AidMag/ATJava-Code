@@ -1,17 +1,8 @@
 import java.util.Scanner;
 
 /*
-Weekday (Mon-Fri): 
-$100.00 during rush hour (06:00 to 07:59, 16:00 to 17:59)
-$  90.00 otherwise
-Weekend (Sat, Sun):
-$  80.00
-
 Age Discounts:
 0 to 2 years (baby): free (final price is $0, ignore other discounts/fees)
-3 to 12 years (child): 20% discount
-13 to 59 years (adult): no age-based discount
-60+ (senior): 25% discount 
 
 Additional Discounts:
 Student: If a passenger has a current, valid student ID, then the passenger receives an additional 5% discount.
@@ -22,12 +13,7 @@ The user will enter the time in 24-hour format. For example, 6:15PM would be ent
 First check to make sure the user entered in a colon (':') character in the string. If they did not, display an error message and exit the program using a return statement.
 You can use the Integer.parseInt() method to extract the hour and the minute from the text:
 Assume the hour is to the left of the ':' character.
-Assume the minute is to the right of the ':' character.
-
-Test Plan
-Before coding their solution, students should create a set of test cases that they will use to verify that their program works.
-Be sure to submit for grading your test plan and include your test results indicating whether or not each test case was successful.  
-
+Assume the minute is to the right of the ':' character.  
 
 name: Thomas Eng
 day: Fri 
@@ -54,49 +40,56 @@ public class PartA {
     enum AGEGROUP {BABY, CHILD, ADULT, SENIOR}
     public static void main(String[] args) {
         
+        // setting up Scanner
         Scanner in = new Scanner(System.in);
 
-        String name;
-        String day;
-        String student;
-        String time;
+        // declaring all the variables
+        String name, day, student, time;
+        int hour, min, age;
         final String a = "Y";
         final String b = "N";
-        double cost;
-        int age;
+        double cost = 0;
 
-
+        // setting values for each variable and checking make sure that the input is the right type
         System.out.print("Name: ");
-        if (!in.hasNextLine()) {
-            System.err.print("ERROR: Enter your name %nProgram Terminating");
+        if (!in.hasNextLine() || in.hasNextInt() || in.hasNextDouble()) {
+            System.err.printf("ERROR: Enter your name %nProgram Terminating");
             return;
         } else {
             name = in.nextLine();
         }
 
         System.out.print("Age: ");
-        if (!in.hasNextInt()) {
+        age = in.nextInt();
+        if (!in.hasNextInt() || age < 0) {
             System.err.printf("ERROR: Enter your age %nProgram Terminating");
-        } else {
-            age = in.nextInt();
-        }
+            return;
+        } 
 
         System.out.print("Day: ");
         if (!in.hasNextLine()) {
-            System.err.print("ERROR: Enter the day %nProgram Terminating");
+            System.err.printf("ERROR: Enter the day %nProgram Terminating");
             return;
         } else {
             day = in.nextLine().toUpperCase();
         }
 
-        System.out.print("Time (24h): ");
-        if (!in.hasNextLine()) {
-            System.err.print("ERROR: Enter the time %nProgram Terminating");
+        System.out.printf("%nTime (HH:MM): ");
+        time = in.nextLine();
+        if (!in.hasNextLine() || !time.contains(":")) {
+            System.err.printf("ERROR: Enter the time %nProgram Terminating");
             return;
-        } else {
-            time = in.nextLine();
         }
-        
+
+        //seperating hours and minutes
+        hour = Integer.parseInt(time.substring(0,2));
+        min = Integer.parseInt(time.substring(2, 5));
+        if (hour > 0 || hour > 23 || min < 0 || min > 59) {
+            System.err.print("ERROR: Enter time in HH:MM format%nProgram terminating");
+        }
+
+
+        //Determining if the user is a student or not
         System.out.print("Student (y/n): ");
         if (!in.hasNextLine()) {
             System.err.printf("ERROR: Enter y or n %nProgram Terminating");
@@ -105,17 +98,74 @@ public class PartA {
             student = in.nextLine().toUpperCase();
         }
 
+        //Determining the day of the week
+        switch (day) {
+            case "MON":
+            case "MONDAY":
+            day = DAYOFWEEK.MON.toString();
+            break; 
+            case "TUES":
+            case "TUESDAY":
+            day = DAYOFWEEK.TUES.toString();
+            break; 
+            case "WED":
+            case "WEDNESDAY":
+            day = DAYOFWEEK.WED.toString();
+            break; 
+            case "THUR":
+            case "THURSDAY":
+            day = DAYOFWEEK.THUR.toString();
+            break; 
+            case "FRI":
+            case "FRIDAY":
+            day = DAYOFWEEK.FRI.toString();
+            break; 
+            case "SAT":
+            case "SATURDAY":
+            day = DAYOFWEEK.SAT.toString();
+            break; 
+            case "SUN":
+            case "SUNDAY":
+            day = DAYOFWEEK.SUN.toString();
+            break; 
+        }
 
         System.out.printf("%n%n--------------------------------------------------------%n");
-        System.out.printf("Name:   %s", name);
-        System.out.printf("Day:      ", day);
-        System.out.printf("Time:     ", time);
+        System.out.printf("Name:    %s%n", name);
+        System.out.printf("Day:     %s%n", day);
+        System.out.printf("Time:    %s%n", time);
+        System.out.printf("%n%n--------------------------------------------------------%n");
+
+        //Acounting for the cost difference if it is a weekend and rush hour
+        if (DAYOFWEEK.SAT.toString().equals(day) || DAYOFWEEK.SUN.toString().equals(day)){
+            cost = 80;
+        } else if (!DAYOFWEEK.SAT.toString().equals(day) || !DAYOFWEEK.SUN.toString().equals(day)) {
+            if (hour == 06 && min == 00 || hour == 07 && min <=59 || hour == 16 && min == 00 || hour == 17 && min <= 59) { 
+            cost = 100;
+        } else
+            cost = 90;
+        } 
+        
+        
+        if 
+        System.out.printf("Base Price:          $ %.2f", cost);
+
+
+        //Calculation for age discounts
+        if (age >= 60) {
+            cost = cost * 0.75;
+        } else if (age >= 3 && age <=12){
+            cost = cost * 0.8;
+        } else if (age >=0 && age <= 2) {
+            cost = 0;
+        } 
+        
+        
         System.out.printf("%n%n--------------------------------------------------------%n");
         
         
         System.out.printf("%n%n--------------------------------------------------------%n");
-        
-        
-        System.out.printf("%n%n--------------------------------------------------------%n");
+
+        in.close();
     }
 }
