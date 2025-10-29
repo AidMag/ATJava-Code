@@ -55,7 +55,7 @@ public class PartA {
 
         System.out.print("Age: ");
         age = in.nextInt();
-        if (!in.hasNextInt() || age < 0) {
+        if (age < 0) {
             System.err.printf("ERROR: Enter your age %nProgram Terminating");
             return;
         } 
@@ -66,20 +66,21 @@ public class PartA {
             return;
         } else {
             day = in.nextLine().toUpperCase();
+            System.out.print(day);
         }
 
         System.out.printf("%nTime (HH:MM): ");
         time = in.nextLine();
-        if (!in.hasNextLine() || !time.contains(":")) {
-            System.err.printf("ERROR: Enter the time %nProgram Terminating");
+        if (in.hasNextInt() || !time.contains(":")) {
+            System.err.printf("ERROR: Enter the time %n Program Terminating");
             return;
         }
 
         //seperating hours and minutes
         hour = Integer.parseInt(time.substring(0,2));
-        min = Integer.parseInt(time.substring(2, 5));
+        min = Integer.parseInt(time.substring(3, 5));
         if (hour > 0 || hour > 23 || min < 0 || min > 59) {
-            System.err.print("ERROR: Enter time in HH:MM format%nProgram terminating");
+            System.err.print("ERROR: Enter time in HH:MM format %nProgram terminating");
         }
 
 
@@ -159,6 +160,8 @@ public class PartA {
             System.out.printf("Base Price:      $   %.2f", cost);
             System.out.printf("Age Discount:    $   %.2f", cost);
             System.out.printf("Base Price:      $   %.2f", cost);
+            System.out.printf("%n%n--------------------------------------------------------%n");
+            System.out.printf("Final Cost:      $   %.2f", cost);
             return;
         } 
 
