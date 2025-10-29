@@ -8,13 +8,6 @@ Additional Discounts:
 Student: If a passenger has a current, valid student ID, then the passenger receives an additional 5% discount.
 The 5% student discount is applied to the ticket cost after the age discount was applied.
 
-Processing 24 Hour Time
-The user will enter the time in 24-hour format. For example, 6:15PM would be entered as "18:15". Your program should use String methods to parse the hour and minute from the text.
-First check to make sure the user entered in a colon (':') character in the string. If they did not, display an error message and exit the program using a return statement.
-You can use the Integer.parseInt() method to extract the hour and the minute from the text:
-Assume the hour is to the left of the ':' character.
-Assume the minute is to the right of the ':' character.  
-
 name: Thomas Eng
 day: Fri 
 time: 17:00
@@ -49,6 +42,7 @@ public class PartA {
         final String a = "Y";
         final String b = "N";
         double cost = 0;
+        double costa, costb, costc;
 
         // setting values for each variable and checking make sure that the input is the right type
         System.out.print("Name: ");
