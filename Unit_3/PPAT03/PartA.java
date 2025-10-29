@@ -146,9 +146,8 @@ public class PartA {
             cost = 90;
         } 
         
-        
-        if 
-        System.out.printf("Base Price:          $ %.2f", cost);
+    
+        System.out.printf("Base Price:          $ %.2f (Base Cost)", cost);
 
 
         //Calculation for age discounts
@@ -158,7 +157,18 @@ public class PartA {
             cost = cost * 0.8;
         } else if (age >=0 && age <= 2) {
             cost = 0;
+            System.out.printf("%n%n--------------------------------------------------------%n");
+            System.out.printf("Name:    %s%n", name);
+            System.out.printf("Day:     %s%n", day);
+            System.out.printf("Time:    %s%n", time);
+            System.out.printf("%n%n--------------------------------------------------------%n");
+            System.out.printf("Base Price:      $   %.2f", cost);
+            System.out.printf("Age Discount:    $   %.2f", cost);
+            System.out.printf("Base Price:      $   %.2f", cost);
+            return;
         } 
+
+        cost = cost * 0.95;
         
         
         System.out.printf("%n%n--------------------------------------------------------%n");
