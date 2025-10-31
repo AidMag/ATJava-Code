@@ -98,7 +98,7 @@ public class PartA {
         //Determining if the user is a student or not
         System.out.print("Student (y/n): ");
         reply = in.nextLine().trim().toUpperCase();
-        if (!reply.equals("Y") && !reply.equals("N")) {//SOMETHING WRONG HERE
+        if (!reply.equals("Y") && !reply.equals("N")) {
             System.err.printf("ERROR: Enter y or n %nProgram Terminating");
             in.close();
             return;
