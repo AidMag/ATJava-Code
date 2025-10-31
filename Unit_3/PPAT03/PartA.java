@@ -109,11 +109,11 @@ public class PartA {
         }
 
         //Acounting for the cost difference if it is a weekend and rush hour
-        if (day == DAYOFWEEK.SAT || day == DAYOFWEEK.SUN){
+        if (DAYOFWEEK.SAT.toString().equals(day) || DAYOFWEEK.SUN.toString().equals(day)){
             //weekend
             final_cost = 80;
             cost = 80;
-        } else if (day != DAYOFWEEK.SAT && day != DAYOFWEEK.SUN) {
+        } else if (!DAYOFWEEK.SAT.toString().equals(day) && !DAYOFWEEK.SUN.toString().equals(day)) {
             if (hour == 06 && min == 00 || hour == 07 && min <=59 || hour == 16 && min == 00 || hour == 17 && min <= 59) { 
             final_cost = 100;
             cost = 100;
@@ -122,8 +122,8 @@ public class PartA {
             final_cost = 90;
             cost = 90;
             //week day normal
-        }        
-        //USE THE AGE ENUMURATIONS
+        }   
+
         //Calculation for age discounts
         if (AGEGROUP.SENIOR.toString().equals(age_group)) {
             final_cost = final_cost * 0.75;
