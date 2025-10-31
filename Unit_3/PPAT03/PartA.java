@@ -1,31 +1,7 @@
 import java.util.Scanner;
 
 /*
-Age Discounts:
-0 to 2 years (baby): free (final price is $0, ignore other discounts/fees)
-
-Additional Discounts:
-Student: If a passenger has a current, valid student ID, then the passenger receives an additional 5% discount.
-The 5% student discount is applied to the ticket cost after the age discount was applied.
-
-name: Thomas Eng
-day: Fri 
-time: 17:00
-age: 55
-student (y/n)?: y
-
-------------------------------------------------------
-Name:    Thomas Eng
-Day:     FRI
-Time:    17:00
-------------------------------------------------------
-Base Price:         $   100.00 (RUSH HOUR FARE)
-Age Discount:       $     0.00 (ADULT)
-Student Discount:   $    -5.00
-------------------------------------------------------
-Final Cost:         $    95.00
-------------------------------------------------------
-
+Aidan
  */
 
 public class PartA {
@@ -37,142 +13,150 @@ public class PartA {
         Scanner in = new Scanner(System.in);
 
         // declaring all the variables
-        String name, day, student, time;
-        int hour, min, age;
-        final String a = "Y";
-        final String b = "N";
-        double cost = 0;
-        double costa, costb, costc;
+        String name, time;
+        boolean isStudent = false;
+        int hour = 0; 
+        int min = 0;
+        int age = 0;
+        double cost = 0, final_cost = 0;
+        double discount = 0, age_discount = 0;
+        String age_group = "ADULT";
 
         // setting values for each variable and checking make sure that the input is the right type
         System.out.print("Name: ");
-        if (!in.hasNextLine() || in.hasNextInt() || in.hasNextDouble()) {
-            System.err.printf("ERROR: Enter your name %nProgram Terminating");
-            return;
-        } else {
-            name = in.nextLine();
-        }
+        name = in.nextLine();
 
         System.out.print("Age: ");
+        if (!in.hasNextInt()) {
+            System.err.printf("ERROR: Enter your age%nProgram terminating");
+            in.close();
+            return; 
+        }
         age = in.nextInt();
-        if (age < 0) {
-            System.err.printf("ERROR: Enter your age %nProgram Terminating");
+        in.nextLine();
+        if (age < 0){
+            System.err.printf("ERROR: Enter your age%nProgram terminating");
+            in.close();
             return;
         } 
 
-        System.out.print("Day: ");
-        if (!in.hasNextLine()) {
-            System.err.printf("ERROR: Enter the day %nProgram Terminating");
-            return;
+        //Using age group enumuration
+        if (age >= 60) {
+            age_group = "SENIOR";
+        } else if (age >= 3 && age <= 12){
+            age_group = "CHILD";
+        } else if (age <= 2) {
+            age_group = "BABY";
         } else {
-            day = in.nextLine().toUpperCase();
-            System.out.print(day);
+            age_group = "ADULT";
         }
 
-        System.out.printf("%nTime (HH:MM): ");
+        // get day.
+        DAYOFWEEK day;
+        System.out.print("Day (abriviation): ");
+        String reply = in.nextLine().trim();
+        if (reply.toLowerCase().equals("sat")) {
+            day = DAYOFWEEK.SAT;
+        } else if (reply.toLowerCase().equals("sun")) {
+            day = DAYOFWEEK.SUN;
+        } else if (reply.toLowerCase().equals("mon")) {
+            day = DAYOFWEEK.MON;
+        } else if (reply.toLowerCase().equals("tues")) {
+            day = DAYOFWEEK.TUES;
+        } else if (reply.toLowerCase().equals("wed")) {
+            day = DAYOFWEEK.WED;
+        } else if (reply.toLowerCase().equals("thur")) {
+            day = DAYOFWEEK.THUR;
+        } else if (reply.toLowerCase().equals("fri")) {
+            day = DAYOFWEEK.FRI;
+        } else {
+            System.err.printf("ERROR: could not understand day of week.%nProgram Terminating");
+            in.close();
+            return;
+        }
+        
+        
+        System.out.printf("Time (HH:MM): ");
         time = in.nextLine();
-        if (in.hasNextInt() || !time.contains(":")) {
+        if (!time.contains(":")) {
             System.err.printf("ERROR: Enter the time %n Program Terminating");
+            in.close();
             return;
         }
 
         //seperating hours and minutes
-        hour = Integer.parseInt(time.substring(0,2));
-        min = Integer.parseInt(time.substring(3, 5));
-        if (hour > 0 || hour > 23 || min < 0 || min > 59) {
+        int i = time.indexOf(":");
+        hour = Integer.parseInt(time.substring(0, i));
+        min = Integer.parseInt(time.substring(i + 1, i + 3));
+        if (hour < 0 || hour > 23 || min < 0 || min > 59) {
             System.err.print("ERROR: Enter time in HH:MM format %nProgram terminating");
+            in.close();
+            return;
         }
 
 
         //Determining if the user is a student or not
         System.out.print("Student (y/n): ");
-        if (!in.hasNextLine()) {
+        reply = in.nextLine().trim().toUpperCase();
+        if (!reply.equals("Y") && !reply.equals("N")) {//SOMETHING WRONG HERE
             System.err.printf("ERROR: Enter y or n %nProgram Terminating");
+            in.close();
             return;
-        } else {
-            student = in.nextLine().toUpperCase();
+        } else if (reply.equals("Y")) {
+            isStudent = true;
+        } else if (reply.equals("N")){
+            isStudent = false;
         }
-
-        //Determining the day of the week
-        switch (day) {
-            case "MON":
-            case "MONDAY":
-            day = DAYOFWEEK.MON.toString();
-            break; 
-            case "TUES":
-            case "TUESDAY":
-            day = DAYOFWEEK.TUES.toString();
-            break; 
-            case "WED":
-            case "WEDNESDAY":
-            day = DAYOFWEEK.WED.toString();
-            break; 
-            case "THUR":
-            case "THURSDAY":
-            day = DAYOFWEEK.THUR.toString();
-            break; 
-            case "FRI":
-            case "FRIDAY":
-            day = DAYOFWEEK.FRI.toString();
-            break; 
-            case "SAT":
-            case "SATURDAY":
-            day = DAYOFWEEK.SAT.toString();
-            break; 
-            case "SUN":
-            case "SUNDAY":
-            day = DAYOFWEEK.SUN.toString();
-            break; 
-        }
-
-        System.out.printf("%n%n--------------------------------------------------------%n");
-        System.out.printf("Name:    %s%n", name);
-        System.out.printf("Day:     %s%n", day);
-        System.out.printf("Time:    %s%n", time);
-        System.out.printf("%n%n--------------------------------------------------------%n");
 
         //Acounting for the cost difference if it is a weekend and rush hour
-        if (DAYOFWEEK.SAT.toString().equals(day) || DAYOFWEEK.SUN.toString().equals(day)){
+        if (day == DAYOFWEEK.SAT || day == DAYOFWEEK.SUN){
+            //weekend
+            final_cost = 80;
             cost = 80;
-        } else if (!DAYOFWEEK.SAT.toString().equals(day) || !DAYOFWEEK.SUN.toString().equals(day)) {
+        } else if (day != DAYOFWEEK.SAT && day != DAYOFWEEK.SUN) {
             if (hour == 06 && min == 00 || hour == 07 && min <=59 || hour == 16 && min == 00 || hour == 17 && min <= 59) { 
+            final_cost = 100;
             cost = 100;
-        } else
+            //week day rush hour
+        } else {
+            final_cost = 90;
             cost = 90;
-        } 
-        
-    
-        System.out.printf("Base Price:          $ %.2f (Base Cost)", cost);
-
-
+            //week day normal
+        }        
+        //USE THE AGE ENUMURATIONS
         //Calculation for age discounts
-        if (age >= 60) {
-            cost = cost * 0.75;
-        } else if (age >= 3 && age <=12){
-            cost = cost * 0.8;
-        } else if (age >=0 && age <= 2) {
+        if (AGEGROUP.SENIOR.toString().equals(age_group)) {
+            final_cost = final_cost * 0.75;
+            age_discount = final_cost * 0.25;
+        } else if (AGEGROUP.CHILD.toString().equals(age_group)){
+            final_cost = final_cost * 0.8;
+            age_discount = final_cost * 0.2;
+        } else if (AGEGROUP.BABY.toString().equals(age_group)) {
             cost = 0;
             System.out.printf("%n%n--------------------------------------------------------%n");
-            System.out.printf("Name:    %s%n", name);
-            System.out.printf("Day:     %s%n", day);
-            System.out.printf("Time:    %s%n", time);
-            System.out.printf("%n%n--------------------------------------------------------%n");
-            System.out.printf("Base Price:      $   %.2f", cost);
-            System.out.printf("Age Discount:    $   %.2f", cost);
-            System.out.printf("Base Price:      $   %.2f", cost);
-            System.out.printf("%n%n--------------------------------------------------------%n");
-            System.out.printf("Final Cost:      $   %.2f", cost);
+            System.out.printf("Final Cost:          $ %6.2f", cost);
+            in.close();
             return;
         } 
 
-        cost = cost * 0.95;
+        if (isStudent == true) {
+            discount = final_cost * 0.05 * -1;
+            final_cost = final_cost * 0.95;
+        } else if (isStudent == false){
+            discount = 0;
+        }
         
-        
-        System.out.printf("%n%n--------------------------------------------------------%n");
-        
-        
-        System.out.printf("%n%n--------------------------------------------------------%n");
-
+        System.out.printf("%n--------------------------------------------------------%n");
+        System.out.printf("Name:    %s%n", name);
+        System.out.printf("Day:     %s%n", day);
+        System.out.printf("Time:    %02d:%02d", hour, min);
+        System.out.printf("%n--------------------------------------------------------%n");
+        System.out.printf("Base Price:          $ %6.2f%n", cost);        
+        System.out.printf("Age Discount:        $ %6.2f%n", age_discount);
+        System.out.printf("Student Discount:    $ %6.2f", discount);
+        System.out.printf("%n--------------------------------------------------------%n");
+        System.out.printf("Final Price:         $ %6.2f%n", final_cost); 
         in.close();
-    }
-}
+        }
+    }  
+}   
