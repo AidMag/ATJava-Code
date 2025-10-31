@@ -24,7 +24,7 @@ public class PartA {
         }
 
         // printing the number of years
-        System.out.printf("It will take %d years to decay to %.2f.", years , amount);
+        System.out.printf("It will take %d years to decay to %.2fg.", years , amount);
 
         in.close();
     }
