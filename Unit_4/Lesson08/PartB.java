@@ -20,7 +20,7 @@ public class PartB {
 
         in.close();
 
-        System.out.println("Year |      Int Earned ($)     |      Balance ($)      ");
+        System.out.printf("%n%nYear |      Int Earned ($)     |      Balance ($)      %n");
         System.out.print("--------------------------------------------------------");
         
         for (year = 1; year <= 5; year++ ) {
