@@ -1,22 +1,29 @@
 /*
-Write a program that generates 10 random integers:
-Use a loop to iterate through the numbers
-Each random integer should range from 1 to 10;
-Calculate the average of the 10 numbers.
-Change the number of times you loop to 1000 and calculate the average value.
+Aidan
+
 Does the average value make sense? Explain.
-
-Hints for Solving Part C:
-The static function Math.random() gives a number from 0.0 up to but not including 1.0
-Can you change this to give a number from 0.0 up to but not including 10.0?
-Can you change it further to instead give an integer from 0 to 9?
-Can you shift this so the number ranges from 1 to 10 instead of 0 to 9?
+    The average makes sense becuase when it was the average of ten times the average was generally staying around 5 with very little divation.
+Then when it loop 1000 time the average stayed closer to 5.
+This is becuase 5 is the exact mid point of 1 through 10 so the averages make sense that they are close to it.
  */
-
-import java.util.Scanner;
 
 public class PartC {
     public static void main(String[] args) {
+        
+        
+        int i;
+        int num_random;
+        double sum = 0;
+        double average;
+
+        for (i = 1; i <= 10; i++){ // change the comparison to i to change the number of times the loop loops
+                num_random = (int)(Math.random() * 11);
+                sum += num_random;
+        }
+        
+        average = sum / i;
+        System.out.printf("The average of ten random numbers are %.2f", average);
+        
         
     }
 }
