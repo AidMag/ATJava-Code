@@ -1,6 +1,6 @@
 /*
  * Aidan
- * ERROR type:
+ * ERROR type: Compile Error
  */
 
 import java.util.Scanner;
@@ -10,8 +10,8 @@ public class PartB {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter number of cookies: ");
         int num = in.nextInt();
-        double discount;
-        if (num > 6) {
+        double discount = 0; // the variable was not inisilized so their was the possiblity that  
+        if (num > 6) {       // if there is less the 6 cookies that discount would not have a value which is not allowed.
             discount = 0.05;
         } else if (num > 12) {
             discount = 0.10;
