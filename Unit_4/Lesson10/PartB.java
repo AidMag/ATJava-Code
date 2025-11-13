@@ -1,6 +1,6 @@
 /*
  * Aidan
- * ERROR type: Compile Error
+ * ERROR type: Compile Error - The value is not insilized so the file cannot be compiled. Logic Error - the most seletive condition is after the least selective condition so the discount is always equal to 0.05.
  */
 
 import java.util.Scanner;
@@ -11,10 +11,10 @@ public class PartB {
         System.out.print("Enter number of cookies: ");
         int num = in.nextInt();
         double discount = 0; // the variable was not inisilized so their was the possiblity that  
-        if (num > 6) {       // if there is less the 6 cookies that discount would not have a value which is not allowed.
+        if (num > 12) {       // if there is less the 6 cookies that discount would not have a value which is not allowed.
+            discount = 0.10; // most seletive should go first
+        } else if (num > 6) {
             discount = 0.05;
-        } else if (num > 12) {
-            discount = 0.10;
         }
         System.out.println("Discount = " + discount);
         

@@ -1,6 +1,6 @@
 /*
  * Aidan
- * ERROR Type: Run Time Error
+ * ERROR Type: Run Time Error - this program will let you compile it but when it runs it cannot print a charater that is in a index that does not exist.
  */
 
 
