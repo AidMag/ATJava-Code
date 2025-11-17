@@ -3,44 +3,6 @@
  */
 
  import java.util.Scanner;
- 
- /*
-  * LetterGrade: 
-  * This program is supposed to compute a student's letter grade
-  * from multiple quiz scores ranging from 0-100 in value.
-  * 
-  * Here is the intended behavior (for students to verify with the debugger):
-  * 1) Read the student's name.
-  * 2) Read in multiple quiz scores as integer values.000
-  * 3) Validate that each score is between 0 and 100; if not, force it into this range.
-  * 4) If the average >= 60, the student passes.
-  * 5) Assign letter grade by average: A >= 90, B >= 80, C >= 70, D >= 60, else F.
-  * 6) Print a short summary.
-  *
-  * NOTE: This file intentionally contains four (4) LOGIC ERRORS for debugging
-  * practice.
-  * 
-  * Use your debugger to find the logic bugs.
-  * 
-  * When you find a bug, place a comment immediately above the bug and explain
-  * what's wrong.
-  * Also, comment out the original bug and write code that fixes the problem.
-  * Be sure to retest your final program to make sure it works properly.
-  * 
-  * 
-  * Hints:
-  * Test the following cases,
-          * Scores are 50, 55, 50, 55.
-          * Scores are 125, 125, -20, -10.
-          * Scores are 70, 80, 90, 100.
-          * 
-  * For these test cases, 
-          * what should the min be? 
-          * what should the max be?  
-          * what should the average be?
-          * should they pass or not?
-          * what should their letter grade be?
-  */
   
  public class PartC {
      public static void main(String[] args) {
@@ -54,8 +16,9 @@
          // and the min and max values.
          int total = 0;
          int min = 0;
-         int max = -1;
+         int max = -1; 
          final int COUNT = 4;
+         boolean first = true; // boolean for min and max
  
          // loop count times to obtain the test scores for the student.
          for (int i = 1; i <= COUNT; i++) {
@@ -66,31 +29,53 @@
              // Only scores from 0 to 100 are allowed.
              // If a score is less than zero, force it to be equal to zero.
              // If a score is greater than 100, force it to be equal to 100.
-             if (s < 0 && s > 100) {
+             
+             // s cannot be both greater and less than zero simultaniously.
+             /* if (s < 0 && s > 100) {
                  if (s < 0)
                      s = 0;
                  if (s > 100)
                      s = 100;
+             } */
+
+             if (s < 0) {
+                 s = 0;
+             } else if (s > 100) {
+                 s = 100;
              }
  
              // Track min/max
-             if (s < min)
-                 min = s;
-             if (s > max)
-                 max = s;
- 
+             /*There needs to be an exeption for the first time so that the min and max will be based off of the inputs.
+             Also forgot brackets and the second condition should an else statement.
+             
+             if (s < min) {
+                min = s;
+             } else if (s > max) {
+               max = s; 
+             }  */ 
+             
+             if (first) {
+                first = false;
+                min = s;
+                max = s;
+             }  
+             if (s < min) {
+                min = s;
+             } else if (s > max) {
+               max = s; 
+             } 
+
              // add up the total.
              total += s;
          }
  
          // calculate average.
-         double avg = (double) (total / COUNT);
+         //double avg = (double) (total / COUNT);--This is just going to add decimal places not keep more info
+         double avg = ((double)total)/ COUNT;
  
          // Did the student pass?
          boolean passed = false;
-         if (avg >= 60)
-             ;
-         {
+         if (avg >= 60) { // there is not supose to be a ';' after the if statement
              passed = true;
          }
  
@@ -114,7 +99,7 @@
          System.out.println("Highest single score recorded: " + max);
          System.out.println("Lowest single score recorded: " + min);
          System.out.println("Passed? " + passed);
-         System.out.printf("Average: %.2f\n", avg);
+         System.out.printf("Average: %.2f%n", avg);// it should be %n not \n for a formated print statement.
          System.out.println("Letter grade: " + letter);
  
          // close the Scanner object before exiting.
