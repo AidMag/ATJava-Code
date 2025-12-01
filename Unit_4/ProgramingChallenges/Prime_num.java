@@ -1,5 +1,5 @@
 /*
-Write a program that asks the user for an integer and checks to determine whether or not the function is prime.
+Aidan
 */
 
 import java.util.Scanner;
@@ -15,9 +15,9 @@ public class Prime_num {
         num = in.nextInt();
 
 
-        for (i = 1; i <= num; i++) {
-            double l = num % i;
-            if (l == 0) {
+        for (i = 2; i <= num-1; i++) {
+            double remander = num % i;
+            if (remander == 0) {
                 System.out.print("This number is not prime");
                 break;
             } else {
