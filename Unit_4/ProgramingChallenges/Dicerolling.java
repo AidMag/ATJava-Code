@@ -16,43 +16,45 @@ import java.util.Scanner;
 
 public class Dicerolling {
     public static void main(String[] args) {
-        import java.util.Scanner;
-
-public class PartD {
-    public static void main(String[] args) {
         
         Scanner in = new Scanner(System.in);
 
-        String input;
-        int num = 0;
+        int num_one = 1, num_two = 0;
 
-        while (true){
-            System.out.print("Enter 'r' to roll, 'd' to display, or 'q' to quit: ");
-            input = in.nextLine().toUpperCase();
+        while (num_one != num_two){
 
-            if (input.equals("R")){
-                num = (int)(Math.random() * 7);
-            } else if (input.equals("D")){
-                if (num == 1){
-                    System.out.printf("+-------+ %n|       | %n|   0   | %n|       | %n+-------+ %n");
-                } else if (num == 2){
-                    System.out.printf("+-------+ %n| 0     | %n|       | %n|     0 | %n+-------+ %n");
-                } else if (num == 3){
-                    System.out.printf("+-------+ %n| 0     | %n|   0   | %n|     0 | %n+-------+ %n");
-                } else if (num == 4){
-                    System.out.printf("+-------+ %n| 0   0 | %n|       | %n| 0   0 | %n+-------+ %n");
-                } else if (num == 5){
-                    System.out.printf("+-------+ %n| 0   0 | %n|   0   | %n| 0   0 | %n+-------+ %n");
-                } else if (num == 6){
-                    System.out.printf("+-------+ %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+ %n");
-                }
-            } else if (input.equals("Q")){
-                break;
+            num_one = (int)(Math.random() * 7);
+            num_two = (int)(Math.random() * 7);
+            
+            if (num_one == 1){
+                System.out.printf("+-------+ %n|       | %n|   0   | %n|       | %n+-------+ ");
+            } else if (num_one == 2){
+                System.out.printf("+-------+ %n| 0     | %n|       | %n|     0 | %n+-------+ ");
+            } else if (num_one == 3){
+                System.out.printf("+-------+ %n| 0     | %n|   0   | %n|     0 | %n+-------+ ");
+            } else if (num_one == 4){
+                System.out.printf("+-------+ %n| 0   0 | %n|       | %n| 0   0 | %n+-------+ ");
+            } else if (num_one == 5){
+                System.out.printf("+-------+ %n| 0   0 | %n|   0   | %n| 0   0 | %n+-------+ ");
+            } else if (num_one == 6){
+                System.out.printf("+-------+ %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+ ");
             }
-        }
 
+            if (num_two == 1){
+                System.out.printf(" +-------+  %n|       |  %n|   0   |  %n|       |  %n+-------+");
+            } else if (num_two == 2){
+                System.out.printf(" +-------+  %n| 0     |  %n|       |  %n|     0 |  %n+-------+");
+            } else if (num_two == 3){
+                System.out.printf(" +-------+  %n| 0     |  %n|   0   |  %n|     0 |  %n+-------+");
+            } else if (num_two == 4){
+                System.out.printf(" +-------+  %n| 0   0 |  %n|       |  %n| 0   0 |  %n+-------+");
+            } else if (num_two == 5){
+                System.out.printf(" +-------+  %n| 0   0 |  %n|   0   |  %n| 0   0 |  %n+-------+");
+            } else if (num_two == 6){
+                System.out.printf(" +-------+  %n| 0   0 |  %n| 0   0 |  %n| 0   0 |  %n+-------+");
+            }
+            System.out.println(" ");
         in.close();
     }
 }
-    }
 }
