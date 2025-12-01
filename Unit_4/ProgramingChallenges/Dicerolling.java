@@ -12,12 +12,8 @@ Bonus, can you display the output as ASCII art dice?
 
  */
 
-import java.util.Scanner;
-
 public class Dicerolling {
     public static void main(String[] args) {
-        
-        Scanner in = new Scanner(System.in);
 
         int num_one = 1, num_two = 0;
 
@@ -41,20 +37,19 @@ public class Dicerolling {
             }
 
             if (num_two == 1){
-                System.out.printf(" +-------+  %n|       |  %n|   0   |  %n|       |  %n+-------+");
+                System.out.printf("+-------+  %n|       | %n|   0   | %n|       | %n+-------+");
             } else if (num_two == 2){
-                System.out.printf(" +-------+  %n| 0     |  %n|       |  %n|     0 |  %n+-------+");
+                System.out.printf("+-------+  %n| 0     | %n|       | %n|     0 | %n+-------+");
             } else if (num_two == 3){
-                System.out.printf(" +-------+  %n| 0     |  %n|   0   |  %n|     0 |  %n+-------+");
+                System.out.printf("+-------+  %n| 0     | %n|   0   | %n|     0 | %n+-------+");
             } else if (num_two == 4){
-                System.out.printf(" +-------+  %n| 0   0 |  %n|       |  %n| 0   0 |  %n+-------+");
+                System.out.printf("+-------+  %n| 0   0 | %n|       | %n| 0   0 | %n+-------+");
             } else if (num_two == 5){
-                System.out.printf(" +-------+  %n| 0   0 |  %n|   0   |  %n| 0   0 |  %n+-------+");
+                System.out.printf("+-------+  %n| 0   0 | %n|   0   | %n| 0   0 | %n+-------+");
             } else if (num_two == 6){
-                System.out.printf(" +-------+  %n| 0   0 |  %n| 0   0 |  %n| 0   0 |  %n+-------+");
+                System.out.printf("+-------+  %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+");
             }
             System.out.println(" ");
-        in.close();
     }
 }
 }
