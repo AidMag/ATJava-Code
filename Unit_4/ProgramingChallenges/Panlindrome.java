@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Panlindrome {
     public static void main(String[] args) {
-        
+
         Scanner in = new Scanner(System.in);
         while (true) {
             String input = " ", word = " ", reverse = " ";
@@ -28,7 +28,8 @@ public class Panlindrome {
             } else {
                 System.out.printf("%s is not a panlindrome.%n", word);
             }
-            in.close();
+            break;
         }
+        in.close();
     }
 }
