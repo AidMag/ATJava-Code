@@ -1,15 +1,5 @@
 /*
-Write a program that simulates the rolling of two six sided dice:
-Display the output of each dice roll to the user
-Stop when the two dice have the same number
-Bonus, can you display the output as ASCII art dice?
-
-+-------+      +-------+
-| O   O |      | O   O |
-|   O   |      |   O   |
-| O   O |      | O   O |
-+-------+      +-------+
-
+Aidan
  */
 
 public class Dicerolling {
