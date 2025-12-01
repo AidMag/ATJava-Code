@@ -19,21 +19,21 @@ public class Dicerolling {
 
         while (num_one != num_two){
 
-            num_one = (int)(Math.random() * 7);
-            num_two = (int)(Math.random() * 7);
+            num_one = (int)(Math.random() * 6) + 1;
+            num_two = (int)(Math.random() * 6) + 1;
             
             if (num_one == 1){
-                System.out.printf("+-------+ %n|       | %n|   0   | %n|       | %n+-------+ ");
+                System.out.printf("+-------+ %n|       | %n|   0   | %n|       | %n+-------+ %n");
             } else if (num_one == 2){
-                System.out.printf("+-------+ %n| 0     | %n|       | %n|     0 | %n+-------+ ");
+                System.out.printf("+-------+ %n| 0     | %n|       | %n|     0 | %n+-------+ %n");
             } else if (num_one == 3){
-                System.out.printf("+-------+ %n| 0     | %n|   0   | %n|     0 | %n+-------+ ");
+                System.out.printf("+-------+ %n| 0     | %n|   0   | %n|     0 | %n+-------+ %n");
             } else if (num_one == 4){
-                System.out.printf("+-------+ %n| 0   0 | %n|       | %n| 0   0 | %n+-------+ ");
+                System.out.printf("+-------+ %n| 0   0 | %n|       | %n| 0   0 | %n+-------+ %n");
             } else if (num_one == 5){
-                System.out.printf("+-------+ %n| 0   0 | %n|   0   | %n| 0   0 | %n+-------+ ");
+                System.out.printf("+-------+ %n| 0   0 | %n|   0   | %n| 0   0 | %n+-------+ %n");
             } else if (num_one == 6){
-                System.out.printf("+-------+ %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+ ");
+                System.out.printf("+-------+ %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+ %n");
             }
 
             if (num_two == 1){
@@ -49,7 +49,7 @@ public class Dicerolling {
             } else if (num_two == 6){
                 System.out.printf("+-------+  %n| 0   0 | %n| 0   0 | %n| 0   0 | %n+-------+");
             }
-            System.out.println(" ");
+            System.out.printf("%n---------------------------------------%n");
     }
 }
 }
