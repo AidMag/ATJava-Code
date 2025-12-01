@@ -12,6 +12,7 @@ public class Panlindrome {
             String input = " ", word = " ", reverse = " ";
             int length;
 
+            //get the correct input
             do {
                 System.out.printf("%nEnter a word: ");
             } while (input.toLowerCase().matches("[a-z]+"));
@@ -19,10 +20,11 @@ public class Panlindrome {
             word = in.nextLine().toLowerCase().trim();
             length = word.length();
 
+            //Reverse the word
             for (int i = length - 1; i >= 0; i--) {
                 reverse += word.charAt(i);
             }
-
+            // compare the reverse to the normal to determine if it is a panlindrome
             if (!reverse.equals(word)) {
                 System.out.printf("%s is a panlindrome.", word);
             } else {

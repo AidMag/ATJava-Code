@@ -19,9 +19,11 @@ public class Dicerolling {
 
         while (num_one != num_two){
 
+            // Generating the two numbers
             num_one = (int)(Math.random() * 6) + 1;
             num_two = (int)(Math.random() * 6) + 1;
             
+            // Printing out the numbers formatted
             if (num_one == 1){
                 System.out.printf("+-------+ %n|       | %n|   0   | %n|       | %n+-------+ %n");
             } else if (num_one == 2){

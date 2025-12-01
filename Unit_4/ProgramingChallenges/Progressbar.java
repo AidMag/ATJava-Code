@@ -9,12 +9,14 @@ public class Progressbar {
         double input;
         double percent;
 
+        //Getting input
         Scanner in = new Scanner(System.in);
         System.out.print("Enter a value from 0 to 20: ");
         input = in.nextInt();
 
         percent = input / 20;
 
+        //Printing out progress bar
         if (percent == 1) {
             System.out.printf("Progress: [####################] 100%%");
         } else if (percent == 0.9) {
