@@ -1,0 +1,25 @@
+public static void main(String[] args)
+{
+   double len = 2;
+   double result = cubeVolume(len);
+   System.out.println(result);
+   len = 10;
+   result = cubeVolume(len);
+   System.out.println(result);
+}
+
+public static double cubeVolume(double sideLength)
+{   
+   double volume = sideLength * sideLength * sideLength;
+   return volume;
+}
+
+
+
+Table:
+          len: | 2 | 10 |
+   sideLength: | 2 | 10 |
+       volume: | 8 | 1000 |
+       result: | 8 | 1000 |
+
+Calls to cubeVolume() Method: 2

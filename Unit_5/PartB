@@ -1,0 +1,11 @@
+Part B:
+What will the result be of the call mystery(3, 2)?
+
+public static double mystery(double x, double y)
+{
+   double result = (x + y) / (y - x);
+   return result;
+}
+
+
+result will be equal to -5

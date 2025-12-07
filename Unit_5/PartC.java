@@ -12,14 +12,13 @@ public class PartC {
         Scanner in = new Scanner(System.in);
 
         double r, vol;
-
      
         System.out.printf("%nEnter the radius of a circle: ");
         r = in.nextInt();
 
         vol = vol(r);
 
-        System.out.print(vol);
+        System.out.printf("%.2f", vol);
 
         in.close();
     }
