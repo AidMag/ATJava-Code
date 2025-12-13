@@ -8,9 +8,14 @@ public class PartC {
      * what is drawn in the JFrame.
      */
     public static void draw(Graphics g) {
-        // by default, this method draws a blue square.
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 100, 100);
+        //this method draws a Yellow Circle.
+        g.setColor(Color.YELLOW);
+        g.fillOval(0, 0, 400, 400);
+        g.setColor(Color.BLACK);
+        g.drawOval(0, 0, 400, 400);
+        g.fillOval(100, 100, 50, 50);
+        g.fillOval(250, 100, 50, 50);
+        g.drawLine(50, 300, 350, 300);
     }
 
     public static enum OS {
@@ -69,7 +74,7 @@ public class PartC {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // set title
-        frame.setTitle("Graphics Template");
+        frame.setTitle("Face :|");
 
         JComponent component = new JComponent() {
             public void paintComponent(Graphics graph) {
