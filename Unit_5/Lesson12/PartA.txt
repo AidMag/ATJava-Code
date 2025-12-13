@@ -1,0 +1,23 @@
+public class Conversation {
+   
+   public static void main(String[] args) {
+
+      Scanner in = new Scanner(System.in);
+      System.out.print("What is your first name? ");
+      String input = in.next();
+
+      System.out.println("Hello, " + input);
+      System.out.print("How old are you? ");
+      int input = in.nextInt();
+      
+      input++;
+
+      System.out.println("Next year, you will be " + input);
+
+   }
+}
+
+ERRORS: There are two types of variable under the same name. 
+This will be a compiler error becuase there needs to be difrenciation between the two variables.
+
+SOLUTION: Rename the int to age or rename the string to name. 
