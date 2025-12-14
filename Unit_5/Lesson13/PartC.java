@@ -4,8 +4,30 @@ import javax.swing.*;
 
 public class PartC {
     /*
-     * Change the following method to customize
-     * what is drawn in the JFrame.
+    Draw a picture of the “four-leaved rose” whose equation in polar coordinates is r = cos(2ᐧθ). Let θ go from 0 to 2π in 1000 steps. 
+    For each step, compute r and then compute the (x, y) coordinates from the polar coordinates by using the formulas
+    
+    x = r · cos(θ)
+    y = r · sin(θ)
+    
+    Important tips:
+    When you want to plot the data in the content area of your JFrame window, you will need to also scale the x and y coordinate values.  
+    If you don't scale (make larger) the coordinate values, the plot will not be visible on your window because the magnitude of the radius r is never greater than 1. 
+    I used a scale factor of 150 so that the values of x and y are large enough to be visible when they are plotted on the content area of my window (scale = 150.0):
+    x = scale · r · cos(θ)
+    y = scale · r · sin(θ)
+    
+    When I calculated x and y, I used double values, then cast them into integer values:
+    
+    plotX = (int)x;
+    plotY = (int)y;
+    
+    The origin for the Java graphics content area coincides with the upper left hand corner of the content area.  
+    However, for this problem you probably want to transform your origin from the upper left corner of the content area to the center of the content area.  
+    You can do this with a simple geometric transformation (translation).
+    Increasing the number of steps (for example from 1000 to 10000) should increase the resolution or detail of your drawing.  
+    For my program, I made the number of steps variable so that I can change the resolution of my drawing.
+    
      */
     public static void draw(Graphics g) {
         // by default, this method draws a blue square.

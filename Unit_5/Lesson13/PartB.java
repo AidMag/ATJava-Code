@@ -14,7 +14,7 @@ public class PartB {
         return g;
     }
     public static void draw(Graphics g) {
-        // by default, this method draws a blue square.
+        //This method alternates blue and red tiles.
         for (int row = 0; row < 4; row++) {
             for (int colomn = 0; colomn < 4; colomn++){
                 if ((row + colomn) % 2 == 0) {
