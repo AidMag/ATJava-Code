@@ -7,28 +7,23 @@ public class PartB {
      * Change the following method to customize
      * what is drawn in the JFrame.
      */
-    public static Graphics blue(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 100, 100);
-        return g;
-    }
-    public static Graphics red(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillRect(0, 0, 100, 100);
+    
+    public static Graphics square(Graphics g, Color color, int x, int y) {
+        g.setColor(color);
+        g.fillRect(x, y, 100, 100);
         return g;
     }
     public static void draw(Graphics g) {
         // by default, this method draws a blue square.
-        for (int i = 0; i <= 16; i++) {
-            if (i == 1 || i == 3 || i == 6 || i == 8 || i == 9 || i == 11 || i == 14 || i == 16) {
-                g.setColor(Color.BLUE);
-                if (i == 1 || i == 2 || i == 3 || i == 4) {
-                    g.fillRect(99+i, 0, 100, 100);
+        for (int row = 0; row < 4; row++) {
+            for (int colomn = 0; colomn < 4; colomn++){
+                if ((row + colomn) % 2 == 0) {
+                    square(g, Color.blue, colomn * 99, row * 99);
+                } else {
+                    square(g, Color.red, colomn * 99, row * 99);   
                 }
-                
             }
-        }
-        
+        } 
     }
 
     public static enum OS {
