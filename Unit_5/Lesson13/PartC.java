@@ -4,13 +4,6 @@ import javax.swing.*;
 
 public class PartC {
     /*
-    Draw a picture of the “four-leaved rose” whose equation in polar coordinates is r = cos(2ᐧθ). Let θ go from 0 to 2π in 1000 steps. 
-    For each step, compute r and then compute the (x, y) coordinates from the polar coordinates by using the formulas
-    
-    x = r · cos(θ)
-    y = r · sin(θ)
-    
-    Important tips:
     When you want to plot the data in the content area of your JFrame window, you will need to also scale the x and y coordinate values.  
     If you don't scale (make larger) the coordinate values, the plot will not be visible on your window because the magnitude of the radius r is never greater than 1. 
     I used a scale factor of 150 so that the values of x and y are large enough to be visible when they are plotted on the content area of my window (scale = 150.0):
@@ -30,21 +23,27 @@ public class PartC {
     
      */
 
+    public static Graphics flower(Graphics g, Color color) {
+        g.setColor(color);
+
+        final int scale = 200;
+        double step = 0.0001;
+        int cx = 200, cy = 200;
+
+        for (double theta = 0; theta <= 2 * Math.PI; theta += step) {
+            double r = scale * Math.cos(2 * theta);
+
+            int x = (int) (r * Math.cos(theta));
+            int y = (int) (r * Math.sin(theta));
+
+            g.drawOval(cx + x, cy + y, 3, 3);
+        }
+
+        return g;
+    }
 
     public static void draw(Graphics g) {
-        // by default, this method draws a blue square.
-        g.setColor(Color.BLUE);
-        double r = 5;
-        double theta = (2 * Math.PI) / 1000;
-        final int scale = 10;
-        
-        for (int i = 1; i <= 1000; i++) {
-            theta += theta;
-            double x = scale * r * Math.cos(theta);
-            double y = scale * r * Math.sin(theta);
-            g.setColor(Color.BLUE);
-            g.drawOval((int) x, (int) y, 3, 3);
-        }
+        flower(g, Color.blue);
     }
 
     public static enum OS {
