@@ -29,10 +29,22 @@ public class PartC {
     For my program, I made the number of steps variable so that I can change the resolution of my drawing.
     
      */
+
+
     public static void draw(Graphics g) {
         // by default, this method draws a blue square.
         g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 100, 100);
+        double r = 5;
+        double theta = (2 * Math.PI) / 1000;
+        final int scale = 10;
+        
+        for (int i = 1; i <= 1000; i++) {
+            theta += theta;
+            double x = scale * r * Math.cos(theta);
+            double y = scale * r * Math.sin(theta);
+            g.setColor(Color.BLUE);
+            g.drawOval((int) x, (int) y, 3, 3);
+        }
     }
 
     public static enum OS {
