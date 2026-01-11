@@ -30,8 +30,7 @@ public class PartB {
             array[i] = array[i - 1];
         }
         
-
-        return currentSize;
+        return currentSize++;
     }
 
     public static int remove(double[] array, int currentSize, int targetIndex) {
@@ -40,12 +39,11 @@ public class PartB {
             // target indez is outsie the current size or larger than our array.
             return currentSize;
         }
-
         for (int i = targetIndex + 1; i > currentSize; i++) {
             array[targetIndex + 1] = array[targetIndex];
         }
-        currentSize--;
-        return currentSize;
+        
+        return currentSize--;
     }
 
     public static void main(String[] args) {
@@ -86,12 +84,9 @@ public class PartB {
         counter = remove(scores, counter, index);
 
         System.out.print("Enter another score: ");
-        in.next();
-        in.next();
-        in.next();
         newElement = in.nextDouble();
 
-        insert(scores, counter, index, newElement);
+        counter = insert(scores, counter, index, newElement);
 
 
         //finding the avg, max, and counter
