@@ -46,25 +46,24 @@ public class PartC {
         System.out.print("Enter a integer 1-10,000: ");
         tgt = in.nextInt();
         
-        for (int i = 0; i < 11; i++) {
-            startTime = System.nanoTime();
-            time_linear = linearSearch(values, tgt);
-            endTime = System.nanoTime();
+        startTime = System.nanoTime();
+        time_linear = linearSearch(values, tgt);
+        endTime = System.nanoTime();
 
-            double time = endTime - startTime;
+        double time = endTime - startTime;
 
-            System.out.printf("Linear Search took %.2f nanoseconds %n", time);
-            System.out.printf("Index: %.2f%n", time_linear);
+        System.out.printf("Linear Search took %.2f nanoseconds %n", time);
+        System.out.printf("Index: %.2f%n", time_linear);
 
-            startTime1 = System.nanoTime();
-            time_binary = B_search(values, tgt);
-            endTime1 = System.nanoTime();
+        startTime1 = System.nanoTime();
+        time_binary = B_search(values, tgt);
+        endTime1 = System.nanoTime();
 
-            time = endTime1 - startTime1;
+        time = endTime1 - startTime1;
 
-            System.out.printf("Binary Search took %.2f nanoseconds %n", time);
-            System.out.printf("Index: %.2f%n", time_binary);
-        }
+        System.out.printf("Binary Search took %.2f nanoseconds %n", time);
+        System.out.printf("Index: %.2f%n", time_binary);
+
 
         in.close();
     }
