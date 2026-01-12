@@ -1,6 +1,4 @@
 /*
-Write a computer program that fills an array of 10,000 integers with a random number between 1 and maximum size of the array:
-
 Write your own method that uses a linear search to determine whether an integer value is present in the array.  
 Use this method to see if a target integer value is present in the array.
 public static int linearSearch(int[] array, int tgtVal)
@@ -15,7 +13,34 @@ What happens if you increase the size from 10,000 to 10,000,000?
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class PartC {
     
+    public static int linearSearch(int[] array, int tgtVal) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == tgtVal) {
+                return tgtVal;
+            }
+        } 
+    }
+
+    public static int B_search(int[] array, int tgtVal) {
+        Arrays.sort(array);
+        return Arrays.binarySearch(array, tgtVal);
+    }
+    
+    public static void main(String[] args) {
+        int counter = 0;
+
+        Scanner in = new Scanner(System.in);
+        int[] values = new int[10000];
+
+        for(int i = 0;i < values.length;i++){
+        values[i] =(int)((Math.random()*10000)+1) ;
+        counter++;
+        }
+
+        in.close();
+    }
 }
