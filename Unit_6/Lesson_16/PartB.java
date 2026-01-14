@@ -1,24 +1,44 @@
 /*
-Write a program that has a method that takes a variable number of double values as its argument.  
-The method then calculates and returns the average of these parameters as a double value.
-
-public static double average(double ... values)
-
-Test your method for the following cases,
-average(10, 8, 9)
-average(scores)  where scores is an array of doubles equal to {100, 90, 80, 100, 80}
-
-Important Note: 
-If you use a partially filled array to store your values, then when you calculate the average using your method, 
-    you should pass a copy of your original array that only contains the valid test scores.  
-You can use the Arrays.copyOf() static method to make a new copy of the original array that is only equal in 
-    length to the current size of your partially filled array.
+Aidan
 */
-
 
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class PartB {
-    
+
+    public static double average(double... values) {
+        double avg, value = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            value += values[i];
+        }
+
+        avg = value / values.length;
+
+        return avg;
+    }
+
+    public static void main(String[] args) {
+       
+        // Setting up variables and Arrays and Scanner
+        Scanner in = new Scanner(System.in);
+        double[] values = new double[10];
+        int counter = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            System.out.print("Enter an integer or type 'q' to quit: ");
+            if (in.hasNext("q") || in.hasNext("Q")) {
+                in.next();
+                break;
+            } else {
+                values[i] = in.nextInt();
+                counter++;
+            }
+        }
+        
+        System.out.printf("The average of your inputs are %.2f", average(Arrays.copyOf(values, counter)));
+
+        in.close();
+    }
 }
