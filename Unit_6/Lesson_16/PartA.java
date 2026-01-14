@@ -29,8 +29,45 @@ Words/Phrases (current size = 4):
 
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class PartA {
+  
+  public static void trimed(String[] phrase, int index) {
+    for (int i = 0; i < index; i++) {
+      phrase[i] = phrase[i].trim();
+      phrase[i] = phrase[i].substring(0, 1).toUpperCase() + phrase[i].substring(1);
+    }
+  }
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    String[] phrase = new String[10];
+    int counter = 0;
 
+    for (int i = 0; i < phrase.length; i++) {
+      System.out.print("Enter a phrase or type 'q' to quit: ");
+      if (in.hasNext("q") || in.hasNext("Q")) {
+        in.next();
+        break;
+      } else {
+        phrase[i] = in.nextLine();
+        counter++;
+      }
+    }
+    
+    System.out.printf("%nWords/Phrases (current size = %d): %n", counter);
+    for (int i = 0; i < counter; i++) {
+      System.out.println(phrase[i]);
+    }
+
+    System.out.printf("%nModified array...");
+    System.out.printf("%nWords/Phrases (current size = %d): %n", counter);
+    
+    trimed(phrase, counter);
+
+    for (int i = 0; i < counter; i++) {
+      System.out.println(phrase[i]);
+    }
+
+    in.close();
+  }
 }
