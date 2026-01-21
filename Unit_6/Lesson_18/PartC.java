@@ -1,5 +1,5 @@
 /*
-Print each temperature on a separate line and mark each instance of the lowest temperature with "<= lowest"
+Aidan
 */
 
 import java.util.ArrayList;
@@ -30,8 +30,8 @@ public class PartC {
         }
 
         
-        for (int j = 0; j < counter; j++) { //There is a problem here!!
-            System.out.printf("%n%.2f", values.get(j));
+        for (int j = 0; j < counter; j++) {
+            System.out.printf("%n%d", values.get(j));
             if (values.get(j) == lowest) {
                 System.out.print("<= Lowest");
             }
