@@ -1,15 +1,41 @@
 /*
-Write a Java program that prompts the user for a series of integer values:
-Store the values in an ArrayList using the Integer wrapper class
-User enters 'q' to quit inputting data
-After you've acquired all the data, go through the list of numbers and remove every odd number from the ArrayList
-Print out the modified list, one number per line
-
-Test your code using the following sequence of integer values,
-1, 1, 2, 3, 4, 5, 5, 6, 7, 8
+Aidan
 */
 
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PartD {
-    
+   public static void main(String[] args) {
+    ArrayList<Integer> values = new ArrayList<>();
+        Scanner in = new Scanner(System.in);
+
+        int counter = 0;
+        
+        while (true) {
+            System.out.print("Enter a temperature or enter 'q' to quit: ");
+            if (in.hasNext("q") || in.hasNext("Q")) {
+                break;
+            } else {
+                values.add(in.nextInt());
+                counter++;
+            }
+        }
+
+        for (int i = 0; i < counter; i++) {
+            if (values.get(i) % 2 != 0) {
+                values.remove(i);
+                counter--;
+                i--;
+            } else {
+                continue;
+            }
+        }
+
+        
+        for (int j = 0; j < counter; j++) {
+            System.out.printf("%n%d", values.get(j));
+        }
+        in.close();
+   } 
 }
