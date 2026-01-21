@@ -1,10 +1,6 @@
 /*
-Write a Java program that declares and initializes an ArrayList of Strings called names:  
-Loop and ask the user for a name or the # symbol to quit
-Add each name to the names ArrayList
-After the names have been added to the list, print each name on a separate line
+Aidan
 */
-
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,8 +18,8 @@ public class PartA {
             values.add(in.next());
             word = values.get(counter);
             counter++;
-        } while (!word.equals("#") || !word.equals("#"));
-        values.remove(counter);
+        } while (!word.equals("#"));
+        values.remove(counter - 1);
 
         System.out.printf("%n%s", values);
         
