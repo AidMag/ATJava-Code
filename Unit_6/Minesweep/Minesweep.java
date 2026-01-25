@@ -27,8 +27,6 @@ public class Minesweep {
     }
 
     public static void mine_map(char[][] array) {
-        int r = (int) Math.random() * 9;
-        int c = (int) Math.random() * 9;
         char space = ' ';
         
         for (int i = 0; i < array.length; i++) {
@@ -37,8 +35,21 @@ public class Minesweep {
             }
         }
         for (int minesPlaced = 0; minesPlaced < 10; minesPlaced++) {
+            int r = (int) (Math.random() * 9);
+            int c = (int) ((Math.random()) * 9);
             if (array[r][c] == space) {
                 array[r][c] = 'm';
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] == 'm') {
+                    continue;
+                }
+                int mineCount = 0;
+                if (array[i][j] == ' ') {
+                    
+                }
             }
         }
     }
@@ -60,5 +71,8 @@ public class Minesweep {
 
         start(board);
         print(board);
+
+        mine_map(map);
+        print(map);
     }
 }
