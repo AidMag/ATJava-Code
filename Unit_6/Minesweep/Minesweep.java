@@ -39,9 +39,11 @@ public class Minesweep {
                 if (array[i][j] == 'm') {
                     continue;
                 }
+
+                //figure out how to generate the numbers
                 int mineCount = 0;
                 if (array[i][j] == ' ') {
-                    for (int r = 0; r < array.length; i++) {
+                    for (int r = 0; r < i; r++) {
                         for (int c = 0; c < array[c].length; c++) {
                             
                         }
