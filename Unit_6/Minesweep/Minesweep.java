@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 /*
-
+Aidan
 */
 
 public class Minesweep {
@@ -9,13 +9,6 @@ public class Minesweep {
     public static void clearScreen() {
        System.out.print("\033[H\033[2J");
        System.out.flush();
-    }
-
-    
-    public static void mine(char[][] array) { //Figure out how to randomly generate where the mines are 
-        for (int i = 0; i <= array.length; i++) {//and the numbers around them
-            array[((int) Math.random() * 9 + 1)][((int) Math.random() * 9 + 1)] = 'm';
-        }
     }
     
     public static void start(char[][] array) {
@@ -48,7 +41,11 @@ public class Minesweep {
                 }
                 int mineCount = 0;
                 if (array[i][j] == ' ') {
-                    
+                    for (int r = 0; r < array.length; i++) {
+                        for (int c = 0; c < array[c].length; c++) {
+                            
+                        }
+                    }
                 }
             }
         }
