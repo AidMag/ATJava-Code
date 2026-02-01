@@ -21,17 +21,19 @@ public class Minesweep {
 
     public static void mine_map(char[][] array) {
         char space = ' ';
+        int minesPlaced = 0;
         
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = ' ';
             }
         }
-        for (int minesPlaced = 0; minesPlaced < 10; minesPlaced++) {
-            int r = (int) (Math.random() * 9);
-            int c = (int) ((Math.random()) * 9);
+        while (minesPlaced < 10) {
+            int r = (int) (Math.random() * array.length);
+            int c = (int) ((Math.random()) * array.length);
             if (array[r][c] == space) {
                 array[r][c] = 'm';
+                minesPlaced++;
             }
         }
         for (int i = 0; i < array.length; i++) {
@@ -40,20 +42,20 @@ public class Minesweep {
                     continue;
                 }
 
-                //figure out how to generate the numbers
                 int mineCount = 0;
                 if (array[i][j] == ' ') {
                     for (int r = -1; r <= 1; r++) {
-                        for (int c = -1; c <= 1 + 1; c++) {
-                            if (r >= 0 && r < array.length && c >= 0 && c < array[0].length && array[r][c] == 'm') {
-                                mineCount++;
+                        for (int c = -1; c <= 1; c++) {
+                            if (i+r >= 0 && i+r < array.length && j+c >= 0 &&j+c < array[j+c].length) {
+                                if (array[i+r][j+c] == 'm') {
+                                  mineCount++;  
+                                }
                             }
                         }
                     }
                     if (mineCount > 0) {
-                      array[i][j] = (char) mineCount;  
-                    }
-                    
+                        array[i][j] = (char) ('0' + mineCount);
+                    }   
                 }
             }
         }
