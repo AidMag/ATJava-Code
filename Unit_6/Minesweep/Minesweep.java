@@ -37,7 +37,7 @@ public class Minesweep {
             }
         }
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
+            for (int j = 0; j < array[j].length; j++) {
                 if (array[i][j] == 'm') {
                     continue;
                 }
@@ -46,7 +46,7 @@ public class Minesweep {
                 if (array[i][j] == ' ') {
                     for (int r = -1; r <= 1; r++) {
                         for (int c = -1; c <= 1; c++) {
-                            if (i+r >= 0 && i+r < array.length && j+c >= 0 &&j+c < array[j+c].length) {
+                            if (i+r >= 0 && i+r < array.length && j+c >= 0 && j+c < array[j+c].length) {
                                 if (array[i+r][j+c] == 'm') {
                                   mineCount++;  
                                 }
