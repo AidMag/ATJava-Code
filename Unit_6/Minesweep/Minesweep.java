@@ -95,7 +95,7 @@ public class Minesweep {
                 System.out.print("Enter coordinates: ");
                 row = in.nextInt();
                 column = in.nextInt();
-                board[row][column] = flag;
+                board[row][column] = 'f';
                 clearScreen();
                 print(board);
             }
