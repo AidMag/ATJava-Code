@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 /*
 Aidan
 */
@@ -90,9 +89,9 @@ public class Minesweep {
 
         while (true) { 
             System.out.print("Enter coordinates or enter f then coordinates to place a flag: ");
-            if (in.hasNext("f") && in.hasNext("F")) {
+            if (in.hasNext("f") || in.hasNext("F")) {
                 String flag = in.next();
-                System.out.printf("%nEnter coordinates: "); // figure out how to do the flags
+                System.out.printf("%nEnter coordinates: "); 
                 row = in.nextInt();
                 column = in.nextInt();
                 board[row][column] = 'f';
