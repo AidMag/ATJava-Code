@@ -88,24 +88,29 @@ public class Minesweep {
 
         mine_map(map);
 
-        while (true) { // figure out how to do the flags
+        while (true) { 
             System.out.print("Enter coordinates or enter f then coordinates to place a flag: ");
             if (in.hasNext("f") && in.hasNext("F")) {
+                in.next();
+                System.out.printf("%nEnter coordinates: "); // figure out how to do the flags
                 char flag = 'f';
-                System.out.print("Enter coordinates: ");
                 row = in.nextInt();
                 column = in.nextInt();
                 board[row][column] = 'f';
                 clearScreen();
                 print(board);
-            }
-            
-            row = in.nextInt();
-            column = in.nextInt();
-
-            board[row][column] = map[row][column];
-            clearScreen();
-            print(board);
+            } else {
+                row = in.nextInt();
+                column = in.nextInt();
+                if (map[row][column] == 'm') {
+                    System.out.print("GAME OVER!");
+                    break;
+                } else {
+                    board[row][column] = map[row][column];
+                    clearScreen();
+                    print(board);
+                } 
+            }    
         }
         
     }
