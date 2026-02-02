@@ -75,7 +75,11 @@ public class Minesweep {
             System.out.println();
         }
     }
+
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int row, column;
+        
         char[][] map = new char[9][9];
         char[][] board = new char[9][9];
 
@@ -83,6 +87,26 @@ public class Minesweep {
         print(board);
 
         mine_map(map);
-        print(map);
+
+        while (true) { // figure out how to do the flags
+            System.out.print("Enter coordinates or enter f then coordinates to place a flag: ");
+            if (in.hasNext("f") && in.hasNext("F")) {
+                char flag = 'f';
+                System.out.print("Enter coordinates: ");
+                row = in.nextInt();
+                column = in.nextInt();
+                board[row][column] = flag;
+                clearScreen();
+                print(board);
+            }
+            
+            row = in.nextInt();
+            column = in.nextInt();
+
+            board[row][column] = map[row][column];
+            clearScreen();
+            print(board);
+        }
+        
     }
 }
