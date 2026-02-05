@@ -7,18 +7,14 @@ public class PartB {
         File file = new File("files/sales_by_cat.txt");
         Scanner in = new Scanner(file);
 
-
-        //String nextWord = lineScanner.next().trim();
-        //nextWord = nextWord.replaceAll(",", "");
-        //double gdp = Double.valueOf(nextWord);
+        double cost;
 
         while (in.hasNextLine()) {
             String line = in.nextLine();
             Scanner lineScanner = new Scanner(line);
-            lineScanner.useDelimiter("[,\n]+");
+            lineScanner.useDelimiter("[,\n\s]+");
             String cat = lineScanner.next();
             String man = lineScanner.next();
-            double cost;
             if (lineScanner.hasNextDouble()) {
                 cost = lineScanner.nextDouble();
             } else {
@@ -28,6 +24,6 @@ public class PartB {
             }
             System.out.printf("%-17s | %-10s | $%10.2f%n", cat, man, cost);
         }
-
+        in.close();
     }
 }
