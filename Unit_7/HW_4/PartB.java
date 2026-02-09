@@ -19,7 +19,8 @@ Bob was born in 1999.
 */
 
 public class PartB {
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("birthyears.txt");
+        Scanner in = new Scanner(file);
     }
 }
