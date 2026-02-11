@@ -1,0 +1,19 @@
+Part B:
+What is the output of the following code and why?
+
+    public static int getInt() {
+        try {
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        } finally {
+            return 3;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getInt());
+    }
+
+
+The output would be 3 becuase...
