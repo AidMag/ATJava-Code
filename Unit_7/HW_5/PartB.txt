@@ -16,4 +16,5 @@ What is the output of the following code and why?
     }
 
 
-The output would be 3 becuase...
+The output would be 3 becuase finally in a try catch statment always return/runs. 
+It would not return 1 becuase it can only return one integer and since finally always runs the method will return 1.
