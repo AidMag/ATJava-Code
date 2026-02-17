@@ -1,0 +1,17 @@
+public static void main(String[] args) {
+   CashRegister cr = new CashRegister();
+   cr.addItem(3.00);
+   cr.addItem(1.50);
+   System.out.printf("Total = $%.2f%n", cr.getTotal());
+   cr.clear();
+   cr.addItem(2.00);
+   cr.addItem(2.50);
+   System.out.println("You have " + cr.getCount() + " items.");
+   System.out.printf("Total = $%.2f%n", cr.getTotal());
+}
+
+Output:
+
+Total = $4.50
+Your have 2 items.
+Total = $4.50
