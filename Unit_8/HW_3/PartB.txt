@@ -1,0 +1,26 @@
+What is the output of the following program (and why)? 
+
+Output - 0 | 0
+Reason - value = value means that the the private int value is just going to equal itself which will always be null/0.
+
+class Item {
+   private int value;
+   public void setValue(int value) {
+       value = value;
+   }
+   public int getValue() {
+       return value;
+   }
+}
+
+public class ThisDemo {
+   public static void main(String[] args) {
+       Item myItem = new Item();
+       System.out.print(myItem.getValue() + " | ");
+       myItem.setValue(13);
+       System.out.println(myItem.getValue());
+   }
+}
+
+How would you change the program so that the output becomes  0 | 13
+    - Change the the variable name in the arguement to num.
