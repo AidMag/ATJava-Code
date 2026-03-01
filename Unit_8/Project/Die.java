@@ -39,17 +39,17 @@ public class Die {
     public void printASCII() {
         int i = value;
         if (i == 1) {
-            System.out.printf("+--------+%n|        |%n|    0   |%n|        |%n+--------+%n%n");
+            System.out.printf("+--------+%n|        |%n|    0  |%n|        |%n+--------+%n%n");
         } else if (i == 2) {
-            System.out.printf("+--------+%n| 0      |%n|        |%n|      0 |%n+--------+%n%n");
+            System.out.printf("+--------+%n| 0      |%n|       |%n|      0 |%n+--------+%n%n");
         } else if (i == 3) {
-            System.out.printf("+--------+%n| 0      |%n|    0   |%n|      0 |%n+--------+%n%n");
+            System.out.printf("+--------+%n| 0      |%n|    0  |%n|      0 |%n+--------+%n%n");
         } else if (i == 4) {
             System.out.printf("+--------+%n| 0    0 |%n|        |%n| 0    0 |%n+--------+%n%n");
         } else if (i == 5) {
-            System.out.printf("+--------+%n| 0    0 |%n|    0   |%n| 0    0 |%n+--------+%n%n");
+            System.out.printf("+--------+%n| 0    0 |%n|    0  |%n| 0    0 |%n+--------+%n%n");
         } else if (i == 6) {
-            System.out.printf("+--------+%n| 0    0 |%n| 0    0 |%n| 0    0 |%n+--------+%n%n");
+            System.out.printf("+--------+%n| 0    0 |%n| 0   0 |%n| 0    0 |%n+--------+%n%n");
         }
     }
 
