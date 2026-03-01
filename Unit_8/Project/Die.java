@@ -72,7 +72,7 @@ public class Die {
         } else if (!in.hasNext("s")) {
             a = new Die();
         }
-        System.out.print("Enter 'r' to roll, 'd' to display (formated), 'n' to display, 'p' to roll a pair, and 'q' to quit");
+        System.out.printf("Enter 'r' to roll, 'd' to display (formated), 'n' to display, 'p' to roll a pair, and 'q' to quit%n");
         while (true) {
             System.out.print("Enter a command: ");
             if (in.hasNext("q") || in.hasNext("Q")) {
