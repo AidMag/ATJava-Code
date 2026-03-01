@@ -20,19 +20,36 @@ public class Die {
     }
 
     public void printASCII(int num) {
+        int i = num;
+        if (i == 1) {
+            System.out.printf("+--------+%n|        |%n|    0    |%n|        |%n+--------+%n%n");
+        } else if (i == 2) {
+            System.out.printf("+--------+%n| 0      |%n|         |%n|      0 |%n+--------+%n%n");
+        } else if (i == 3) {
+            System.out.printf("+--------+%n| 0      |%n|    0    |%n|      0 |%n+--------+%n%n");
+        } else if (i == 4) {
+            System.out.printf("+--------+%n| 0    0 |%n|        |%n| 0    0 |%n+--------+%n%n");
+        } else if (i == 5) {
+            System.out.printf("+--------+%n| 0    0 |%n|    0    |%n| 0    0 |%n+--------+%n%n");
+        } else if (i == 6) {
+            System.out.printf("+--------+%n| 0    0 |%n| 0     0 |%n| 0    0 |%n+--------+%n%n");
+        }
+    }
+
+    public void printASCII() {
         int i = value;
         if (i == 1) {
-            System.out.printf("+--------+%n|        |%n|    0    |%n|        |%n+--------+%n");
+            System.out.printf("+--------+%n|        |%n|    0    |%n|        |%n+--------+%n%n");
         } else if (i == 2) {
-            System.out.printf("+--------+%n| 0      |%n|         |%n|      0 |%n+--------+%n");
+            System.out.printf("+--------+%n| 0      |%n|         |%n|      0 |%n+--------+%n%n");
         } else if (i == 3) {
-            System.out.printf("+--------+%n| 0      |%n|    0    |%n|      0 |%n+--------+%n");
+            System.out.printf("+--------+%n| 0      |%n|    0    |%n|      0 |%n+--------+%n%n");
         } else if (i == 4) {
-            System.out.printf("+--------+%n| 0    0 |%n|         |%n| 0    0 |%n+--------+%n");
+            System.out.printf("+--------+%n| 0    0 |%n|        |%n| 0    0 |%n+--------+%n%n");
         } else if (i == 5) {
-            System.out.printf("+--------+%n| 0    0 |%n|    0    |%n| 0    0 |%n+--------+%n");
+            System.out.printf("+--------+%n| 0    0 |%n|    0    |%n| 0    0 |%n+--------+%n%n");
         } else if (i == 6) {
-            System.out.printf("+--------+%n| 0    0 |%n| 0     0 |%n| 0    0 |%n+--------+%n");
+            System.out.printf("+--------+%n| 0    0 |%n| 0     0 |%n| 0    0 |%n+--------+%n%n");
         }
     }
 
@@ -49,6 +66,7 @@ public class Die {
         System.out.print("Enter 's' to set the die or 'n' to skip: ");
         if (in.hasNext("s")) {
             System.out.print("Enter an interger between 1-6: ");
+            in.next();
             int b = in.nextInt();
             a = new Die(b);
         } else if (!in.hasNext("s")) {
@@ -64,7 +82,7 @@ public class Die {
                 a.roll();
             } else if (in.hasNext("d")) {
                 in.next();
-                a.printASCII(a.look());
+                a.printASCII();
             } else if (in.hasNext("n")) {
                 in.next();
                 System.out.println(a.look());
