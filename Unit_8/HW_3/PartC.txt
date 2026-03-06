@@ -1,6 +1,9 @@
 Assignment: Part C
 
 What is the output of the following code and why?
+   -
+
+
    public static void main(String[] args) {
        Customer.lastSerialUsed = 100;
        Customer c1 = new Customer("Sal's Deli");
