@@ -1,6 +1,10 @@
 Assignment: Part C
 
 What is the output of the following code and why?
+   -Output
+   100
+   150
+
    public static void main(String[] args) {
        Customer.lastSerialUsed = 100;
        Customer c1 = new Customer("Sal's Deli");
@@ -12,3 +16,5 @@ What is the output of the following code and why?
    }
 
 (Use the Customer class we developed in class).
+
+Explination: The sale for c1 is set when the first sale is added, at 100. Then when Customer c2 is declare it is equal to c1, so it also has a sale of 100. Then when an additional sale is added to c2, of 50, the total sale for c2 will be 150 and the totoal for c1 will be 100.
