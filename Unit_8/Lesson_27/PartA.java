@@ -1,15 +1,16 @@
 /*
-Write a program that uses the LocalDate and LocalTime classes to display the current date and time.  
-Your output should look like the following,
-
-Today's date is 2024-01-01
-The time is 14:36:22.623383
-
-Refer to the Java API documentation to determine what package contains these two classes and to see how these classes are typically used. 
-As a comment in your program, mention the name of the package that contains these classes. 
-Also mention the names of any parent packages.
+java.time and java.base and time are the parent packages
 */
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class PartA {
-    
+    public static void main(String[] args) {
+        LocalDate today = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        System.out.println("Today's date is " + today);
+        System.out.print("The time is " + time);
+
+    }
 }
