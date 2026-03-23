@@ -47,6 +47,10 @@ public class Yard {
         }
     }
 
+    public char get(int a, int b) {
+        return lawn[a][b];
+    }
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

@@ -1,13 +1,9 @@
 package mow;
 
-
 /*    
-Your Mower class should have methods that perform these tasks
-The mower can sense whether there is grass or red brick located one unit in front of it.
-
-The last two methods in the list above require that the mower interact with the virtual yard.  
-Your method declaration for these two functions should include a reference to a yard object passed as an argument to these methods.
+Aidan
 */
+
 public class Mower {
     private int r = 0;
     private int c = 0;
@@ -28,11 +24,11 @@ public class Mower {
 
     public void move() {
         if (o == 0) {
-            r += 1;
+            r -= 1;
         } else if (o == 1) {
             c += 1;
         } else if (o == 2) {
-            r -= 1;
+            r += 1;
         } else if (o == 3) {
             c -= 1;
         }
@@ -50,16 +46,41 @@ public class Mower {
         }
     }
     
-    public void check() {
+    public char check(Yard yard) {
+        char brick = 'R';
+        char grass = '+';
+        char emty = ' ';
+
         if (o == 0) {
+            if (yard.get(r - 1, c) == brick) {
+                return brick;
+            } else if (yard.get(r - 1, c) == grass) {
+                return grass;
+            }
         } else if (o == 1) {
+            if (yard.get(r, c + 1) == brick) {
+                return brick;
+            } else if (yard.get(r, c + 1) == grass) {
+                return grass;
+            }
         } else if (o == 2) {
+            if (yard.get(r + 1, c) == brick) {
+                return brick;
+            } else if (yard.get(r + 1, c) == grass) {
+                return grass;
+            }
         } else if (o == 3) {
-        } 
+            if (yard.get(r, c - 1) == brick) {
+                return brick;
+            } else if (yard.get(r, c - 1) == grass) {
+                return grass;
+            }
+        }
+        return emty;
     }
 
     public void cut(Yard yard) {
-        yard[r][c] = ' ';
+        yard.cut(r, c, ' ');
     }
     
     public void turn_r() {
