@@ -27,12 +27,12 @@ public class GearedBicycle extends Bicycle{
     public void shift_up() {
         gear = gear++; 
         if (gear > 0 && gear <= MAX_GEAR) {
-            gear = gear++;
+            gear += 1;
         }
     }
     
     public void shift_down() {
-        gear = gear--;
+        gear -= 1;
         if (gear < 0) {
             gear = 1;
         }
@@ -48,12 +48,11 @@ public class GearedBicycle extends Bicycle{
     }
 
     public void brake() {
-        int speed = getSpeed() - 2;
-        if (speed < 0) {
-            speed = 0;
-        } else if (speed > GEARED_MAX_SPEED) {
-            speed = GEARED_MAX_SPEED;
+        int newSpeed = getSpeed() - 2;
+        if (newSpeed < 0) {
+            newSpeed = 0;
         }
+        setSpeed(newSpeed);
     }
 
     // override the display() method.
