@@ -1,6 +1,3 @@
-
-import java.util.ArrayList;
-
 import zoo.*;
 
 public class Zoo {

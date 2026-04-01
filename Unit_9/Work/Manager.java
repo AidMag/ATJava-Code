@@ -9,7 +9,19 @@ public class Manager extends Employee {
     }
     
     public double getAnnualIncome() {
-        double income = bonus + super.getAnnualIncome();
-        return income;
+        return bonus + super.getAnnualIncome();
+    }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double newBonus) {
+        bonus = newBonus;
+    }
+
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.printf("  Bonus  = $%,12.2f%n", bonus);
     }
 }
