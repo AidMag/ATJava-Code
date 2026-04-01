@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Work.*;
 
 /*
-Once you have created the Executive class, modify the demo application to demonstrate how objects of Executive class behave when their displayInfo() method is called
+Aidan
 */
 
 public class Lesson30A {
@@ -18,6 +18,7 @@ public class Lesson30A {
             String name;
             double salary;
             double bonus;
+            double stock = 0;
             if (choice.equals("q")) {
                 // exit the loop.
                 break;
@@ -51,7 +52,9 @@ public class Lesson30A {
                 salary = Double.parseDouble(in.nextLine());
                 System.out.print("Enter bonus (as a double): ");
                 bonus = Double.parseDouble(in.nextLine());
-                Manager manager = new Manager(name, salary, bonus);
+                System.out.print("Enter stock (as a double): ");
+                stock = Double.parseDouble(in.nextLine());
+                Executive executive = new Executive(name, salary, bonus, stock);
 
                 // add to array list.
                 employees.add(executive);
