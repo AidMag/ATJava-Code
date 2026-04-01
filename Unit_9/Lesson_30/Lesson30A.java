@@ -13,7 +13,7 @@ public class Lesson30A {
         Scanner in = new Scanner(System.in);
         ArrayList<Employee> employees = new ArrayList<>();
         while (true) {
-            System.out.print("Enter a letter ((E)mployee, (M)anager, or (Q)uit): ");
+            System.out.print("Enter a letter ((E)mployee, (M)anager, E(X)ecutive or (Q)uit): ");
             String choice = in.nextLine().toLowerCase();
             String name;
             double salary;
@@ -43,6 +43,18 @@ public class Lesson30A {
 
                 // add to array list.
                 employees.add(manager);
+            } else if (choice.equals("x")) {
+                // create a new manager;
+                System.out.print("Enter name: ");
+                name = in.nextLine();
+                System.out.print("Enter salary (as a double): ");
+                salary = Double.parseDouble(in.nextLine());
+                System.out.print("Enter bonus (as a double): ");
+                bonus = Double.parseDouble(in.nextLine());
+                Manager manager = new Manager(name, salary, bonus);
+
+                // add to array list.
+                employees.add(executive);
             } else {
                 System.out.println("I don't understand your choice.");
             }
