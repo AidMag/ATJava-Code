@@ -47,6 +47,29 @@ public class Yard {
         }
     }
 
+    public void print(Mower a) {
+        int c = a.getCol();
+        int r = a.getRow();
+        for (int i = 0; i < lawn.length; i++) {
+            for (int j = 0; j < lawn[i].length; j++) {
+                if (i == r && c == j) {
+                    if (a.getDirection() == 0) {
+                        lawn[i][j] = '^';
+                    } else if (a.getDirection() == 1) {
+                        lawn[i][j] = '>';
+                    } else if (a.getDirection() == 2) {
+                        lawn[i][j] = 'v';
+                    } else if (a.getDirection() == 2) {
+                        lawn[i][j] = '<';
+                    }
+                }
+
+                System.out.print(lawn[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     public char get(int a, int b) {
         return lawn[a][b];
     }
@@ -54,6 +77,8 @@ public class Yard {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+        System.out.println();
+        System.out.println();
     }
 
 }

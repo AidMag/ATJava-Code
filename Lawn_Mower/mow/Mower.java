@@ -9,6 +9,37 @@ public class Mower {
     private int c = 0;
     private int o = 0;
 
+    public Mower(int r, int c, int o) {
+        this.r = r;
+        this.c = c;
+        this.o = o;
+    }
+
+    public int getRow() {
+        return r;
+    }
+
+    public int getCol() {
+        return c;
+    }
+
+    public int getDirection() {
+        return o;
+    }
+
+    public void setRow(int row) {
+        this.r = row;
+    }
+
+    public void setCol(int col) {
+        this.c = col;
+    }
+
+    public void setDirection(int direction) {
+        this.o = direction;
+    }
+
+
     public void set_position(int i, int j) {
         r = i;
         c = j;
