@@ -16,36 +16,35 @@ public class PartC {
 
         System.out.print("Enter which direction the spiral should go ((R)ight or (L)eft): ");
         String direction = in.next().toLowerCase();
+        in.close();
 
         System.out.println();
         lawn.print(mower);
 
         if (direction.equals("r")) {
             while (true) {
-            mower.cut(lawn);
-            if (mower.check(lawn) == 'R'||mower.check(lawn) == ' ') {
-                mower.turn_r();
-            } else {
-                mower.move();
-            }
-            Yard.clearScreen();
-            lawn.print(mower);
-            Mower.delay(500);
-            
+                mower.cut(lawn);
+                if (mower.check(lawn) == 'R'||mower.check(lawn) == ' ') {
+                    mower.turn_r();
+                } else {
+                    mower.move();
+                }
+                Yard.clearScreen();
+                lawn.print(mower);
+                Mower.delay(500); 
             }
         } else if (direction.equals("l")) {
             while (true) {
-            mower.cut(lawn);
-            if (mower.check(lawn) == 'R'||mower.check(lawn) == ' ') {
-                mower.turn_l();
-            } else {
-                mower.move();
-            }
-            Yard.clearScreen();
-            lawn.print(mower);
-            Mower.delay(500);
+                mower.cut(lawn);
+                if (mower.check(lawn) == 'R'||mower.check(lawn) == ' ') {
+                    mower.turn_l();
+                } else {
+                    mower.move();
+                }
+                Yard.clearScreen();
+                lawn.print(mower);
+                Mower.delay(500);
             }
         }
-        in.close();
     }
 }
