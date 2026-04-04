@@ -59,7 +59,7 @@ public class Yard {
                         lawn[i][j] = '>';
                     } else if (a.getDirection() == 2) {
                         lawn[i][j] = 'v';
-                    } else if (a.getDirection() == 2) {
+                    } else if (a.getDirection() == 3) {
                         lawn[i][j] = '<';
                     }
                 }
