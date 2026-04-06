@@ -157,25 +157,17 @@ public class Mower {
         }
     }
 
-    public boolean updateMower(Yard yard){
-        if (yard.get(r + 1, c) == '+') {
-            o = 0;
-            r++;
-            return true;
-        } else if (yard.get(r - 1, c) == '+') {
-            o = 2;
-            r--;
-            return true;
-        } else if (yard.get(r, c + 1) == '+') {
-            o = 1;
-            c++;
-            return true; 
-        } else if (yard.get(r, c - 1) == '+') {
-            o = 3;
-            c--;
-            return true; 
+    public boolean updateMower(Yard yard) {
+        this.cut(yard);
+        if (this.check(yard) == 'R' || this.check(yard) == ' ') {
+            this.turn_r();
         } else {
-            return false;
+            this.move();
         }
+        Yard.clearScreen();
+        yard.print(this);
+        Mower.delay(500);
+        return yard.checkGrass();
     }
+   
 }

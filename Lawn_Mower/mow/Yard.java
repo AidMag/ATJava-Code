@@ -81,4 +81,15 @@ public class Yard {
         System.out.println();
     }
 
+    public boolean checkGrass() {
+        for (char[] row : lawn) {
+            for (char spot : row) {
+                if (spot == '+') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
