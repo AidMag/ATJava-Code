@@ -86,7 +86,6 @@ public class Card{
     }
     
     /*
-    The Card class should have a public method called getFace() that returns a string that represents the face value of the card:
     The suit should be represented by a single unicode character:
         char spade   = '\u2660';    // ♠
         char heart   = '\u2661';    // ♡
@@ -104,9 +103,17 @@ public class Card{
    
     public String getFace() {
         String face;
+        char suit;
+        char rank;
         
         if (a == Suit.SPADE) {
-
+            suit = '\u2660';
+        } else if (a == Suit.CLUB) {
+            suit = '\u2663';
+        } else if (a == Suit.DIAMOND) {
+            suit = '\u2662';
+        } else {
+            suit = '\u2661';
         }
         
         return face;
