@@ -102,20 +102,73 @@ public class Card{
     */
    
     public String getFace() {
-        String face;
-        char suit;
-        char rank;
-        
-        if (a == Suit.SPADE) {
-            suit = '\u2660';
-        } else if (a == Suit.CLUB) {
-            suit = '\u2663';
-        } else if (a == Suit.DIAMOND) {
-            suit = '\u2662';
-        } else {
-            suit = '\u2661';
+        char s;
+        char r;
+
+        switch (b) {
+            case TWO:
+                r = '2';
+                break;
+            case THREE:
+                r = '3';
+                break;
+            case FOUR:
+                r = '4';
+                break;
+            case FIVE:
+                r = '5';
+                break;
+            case SIX:
+                r = '6';
+                break;
+            case SEVEN:
+                r = '7';
+                break;
+            case EIGHT:
+                r = '8';
+                break;
+            case NINE:
+                r = '9';
+                break;
+            case TEN:
+                r = 'T';
+                break;
+            case JACK:
+                r = 'J';
+                break;
+            case QUEEN:
+                r = 'Q';
+                break;
+            case KING:
+                r = 'K';
+                break;
+            case ACE:
+                r = 'A';
+                break;
+            default:
+                r = 'N';
+                break;
+
+        }
+
+        switch (a) {
+            case SPADE:
+                s = '\u2660';
+                break;
+            case CLUB:
+                s = '\u2663';
+                break;
+            case DIAMOND:
+                s = '\u2662';
+                break;
+            case HEART:
+                s = '\u2661';
+                break;
+            default:
+                s = '?';
+                break;
         }
         
-        return face;
+        return "" + s + r;
     }
 }
