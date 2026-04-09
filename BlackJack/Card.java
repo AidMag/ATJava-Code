@@ -84,22 +84,6 @@ public class Card{
     public Rank getRank() {
         return b;
     }
-    
-    /*
-    The suit should be represented by a single unicode character:
-        char spade   = '\u2660';    // ♠
-        char heart   = '\u2661';    // ♡
-        char club    = '\u2663';    // ♣
-        char diamond = '\u2662';    // ♢
-    The rank should be represented by a single character:
-    '2' through '9' for rank TWO through NINE
-    'T' for TEN
-    'J' for JACK
-    'Q' for QUEEN
-    'K' for KING
-    'A' for ACE
-    For example, if a card is a HEART with a rank of TEN, the getFace() method should return the String "♡T".
-    */
    
     public String getFace() {
         char s;
@@ -168,7 +152,18 @@ public class Card{
                 s = '?';
                 break;
         }
-        
+
         return "" + s + r;
+    }
+    
+    public static void main(String[] args) {
+        Card a = new Card(Card.Rank.QUEEN, Card.Suit.CLUB);
+
+        System.out.println("First Card is a Queen of Clubs: " + a.getFace());
+
+        for (int i = 0; i < 11; i++) {
+            Card b = new Card();
+            System.out.println(b.getFace());
+        }
     }
 }
