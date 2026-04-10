@@ -1,10 +1,8 @@
 import game.deck.Card;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
-Your program should use an array list of Card objects to represent each player's hand.
-Your program does NOT need to implement a betting system.  It is sufficient to just play the game and determine if there is a winner or if it is a draw.
-Your program should have a game loop that prompts the user if they'd like to play a hand of blackjack or if they want to quit the game.
 For each hand of blackjack, the game begins with a random card dealt face up to each player and the second random card dealt face up to the player and face down for the dealer:
 The program should automatically track each player's score.
 The rank of a numeric card (2 through 10) is added to a player's score.
@@ -37,6 +35,33 @@ For your game, assume that the dealer draws from an infinite (and NOT limited) n
 
 public class BlackJack {
     public static void main(String[] args) {
-    
+        Scanner in = new Scanner(System.in);
+        ArrayList<Card> player = new ArrayList<>();
+        ArrayList<Card> dealer = new ArrayList<>();
+        Card a = new Card();
+        Card b = new Card();
+        Card c = new Card();
+        Card d = new Card();
+
+        dealer.add(a.getFace());
+        dealer.add(b.getFace());
+        player.add(c.getFace());
+        player.add(d.getFace());
+
+        
+
+        while (true) {
+            if (in.hasNext("h") || in.hasNext("H")){
+                
+            } else if (in.hasNext("S") || in.hasNext("s")) {
+                
+            } else if (in.hasNext("Q") || in.hasNext("q")) {
+                in.close();
+                break;
+            } else {
+                throw new IllegalArgumentException("Incorrect input: Please use the commands proved.");
+            }
+        }
+        in.close();
     }
 }
