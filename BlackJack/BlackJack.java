@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
-For each hand of blackjack, the game begins with a random card dealt face up to each player and the second random card dealt face up to the player and face down for the dealer:
 The program should automatically track each player's score.
 The rank of a numeric card (2 through 10) is added to a player's score.
 Jacks, queens, and kings add 10 points each to a player's score.
@@ -34,28 +33,43 @@ For your game, assume that the dealer draws from an infinite (and NOT limited) n
 */
 
 public class BlackJack {
+    
+    public static void delay(long msec) {
+        try {
+            Thread.sleep(msec);
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ArrayList<Card> player = new ArrayList<>();
         ArrayList<Card> dealer = new ArrayList<>();
-        Card a = new Card();
-        Card b = new Card();
-        Card c = new Card();
-        Card d = new Card();
 
-        dealer.add(a.getFace());
-        dealer.add(b.getFace());
-        player.add(c.getFace());
-        player.add(d.getFace());
+        dealer.add(new Card());
+        dealer.add(new Card());
+        player.add(new Card());
+        player.add(new Card());
+
+        System.out.println(dealer.get(0).getFace() + " ##");
+        System.out.println(player.get(0).getFace() + " " + player.get(1).getFace());
 
         
-
         while (true) {
-            if (in.hasNext("h") || in.hasNext("H")){
+
+            String choice = in.nextLine().trim().toLowerCase();
+
+            if (choice.equals("h")){
                 
-            } else if (in.hasNext("S") || in.hasNext("s")) {
+            } else if (choice.equals("s")) {
                 
-            } else if (in.hasNext("Q") || in.hasNext("q")) {
+            } else if (choice.equals("q")) {
                 in.close();
                 break;
             } else {
