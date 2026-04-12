@@ -5,7 +5,6 @@ import java.util.Scanner;
 /*
 The program should automatically track each player's score.
 The rank of a numeric card (2 through 10) is added to a player's score.
-Jacks, queens, and kings add 10 points each to a player's score.
 Aces count as 11 unless the player's score is a bust.  
 If the player's score exceeds 21, and the player has one or more ace, then the code should loop through the aces
 For each iteration the code should change the value of the current ace to 1 (from 11) and then recalculate the score.
@@ -47,33 +46,147 @@ public class BlackJack {
         System.out.flush();
     }
 
+    public static int calculateScore(ArrayList<Card> hand) {
+        int score = 0;
+        int aceCount = 0;
+
+        for (Card card : hand) {
+            score += card.getValue();
+
+            if (card.getValue() == 11) {
+                aceCount++;
+            }
+        }
+
+        if (score > 21 && aceCount > 0) {
+            for (int i = 0; i < aceCount; i++) {
+                score -= 10;
+                if (score < 21) {
+                    break;
+                }
+            }
+        }
+
+        return score;
+    }
+
+    public static void printHand(ArrayList<Card> hand) {
+        for (Card card : hand) {
+            System.out.print(card.getFace() + " ");
+        }
+        System.out.println();
+    }
+
+    public static void again() {
+        System.out.print("Would you like to play again? (y/n): ");
+                String a = in.next().toLowerCase();
+                if (a.equals("y")) {
+                    continue;
+                } else {
+                    break;
+                }
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ArrayList<Card> player = new ArrayList<>();
         ArrayList<Card> dealer = new ArrayList<>();
 
+        int dealer_value;
+        int player_value;
+
         dealer.add(new Card());
         dealer.add(new Card());
         player.add(new Card());
         player.add(new Card());
+
+        dealer_value = calculateScore(dealer);
+        player_value = calculateScore(player);
 
         System.out.println(dealer.get(0).getFace() + " ##");
         System.out.println(player.get(0).getFace() + " " + player.get(1).getFace());
 
         
         while (true) {
-
+            System.out.print("(h)it, (s)tay, or (q)uit: ");
             String choice = in.nextLine().trim().toLowerCase();
 
             if (choice.equals("h")){
-                
+                player.add(new Card());
+
+                dealer_value = calculateScore(dealer);
+                player_value = calculateScore(player);
+
+                System.out.print("Dealer: ");
+                printHand(dealer);
+                System.out.print("Player: ");
+                printHand(player);
+
+                if (player_value > 21) {
+                    System.out.println("Player busts! Dealer wins!");
+                    break;
+                } else if (player_value > dealer_value) {
+                    System.out.println("Dealer wins!");
+                } else if (dealer_value > player_value) {
+                    System.out.println("Player wins!");
+                } else {
+                    System.out.println("It's a draw!");
+                }
+
+                System.out.print("Would you like to play again? (y/n): ");
+                String a = in.next().toLowerCase();
+                if (a.equals("y")) {
+                    continue;
+                } else {
+                    break;
+                }
             } else if (choice.equals("s")) {
-                
+                System.out.println("Dealer's turn...");
+
+                while (calculateScore(dealer) < 17) {
+                    delay(1000);
+                    dealer.add(new Card());
+                }
+
+                dealer_value = calculateScore(dealer);
+                player_value = calculateScore(player);
+
+                System.out.print("Dealer: ");
+                printHand(dealer);
+
+                System.out.print("Player: ");
+                printHand(player);
+
+                if (dealer_value > 21) {
+                    System.out.println("Dealer busts! Player wins!");
+                    break;
+                } else if (dealer_value > player_value) {
+                    System.out.println("Dealer wins!");
+                } else if (player_value > dealer_value) {
+                    System.out.println("Player wins!");
+                } else {
+                    System.out.println("It's a draw!");
+                }
+
+                System.out.print("Would you like to play again? (y/n): ");
+                String a = in.next().toLowerCase();
+                if (a.equals("y")) {
+                    continue;
+                } else {
+                    break;
+                }
             } else if (choice.equals("q")) {
                 in.close();
                 break;
             } else {
                 throw new IllegalArgumentException("Incorrect input: Please use the commands proved.");
+                System.out.print("Would you like to play again? (y/n): ");
+                String a = in.next().toLowerCase();
+                if (a.equals("y")) {
+                    continue;
+                } else {
+                    break;
+                }
             }
         }
         in.close();
