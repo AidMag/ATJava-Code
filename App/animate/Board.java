@@ -33,11 +33,11 @@ public class Board extends JPanel{
        y_t = y_t - SIDE_LEN / 2;
        AffineTransform affineTransform = new AffineTransform();
        affineTransform.translate(x_t, y_t);
+       affineTransform.rotate(0.3926991, SIDE_LEN/2, SIDE_LEN/2);
        
        // get the transformed shape.
        Rectangle rect = new Rectangle(0, 0, SIDE_LEN, SIDE_LEN);
        Shape transformedShape = affineTransform.createTransformedShape(rect);
-       affineTransform.rotate(122.5, 175, 175);
 
         // set color.
         g2d.setColor(Color.MAGENTA);
@@ -46,5 +46,6 @@ public class Board extends JPanel{
         g2d.fill(transformedShape);
 
         g2d.setColor(Color.BLUE);
+        g2d.drawString("Hello Viewer! Look at that square!",10,30);
     }
 }
