@@ -22,7 +22,7 @@ public class Board extends JPanel{
 
         // attempt to load the image.
         try {
-            File imageFile = new File("media/instrument-124.png");
+            File imageFile = new File("media/cakes.jpg");
             img = ImageIO.read(imageFile);
             setPreferredSize(new Dimension(img.getWidth(), img.getHeight()));
         } catch (Exception e) {
@@ -38,9 +38,9 @@ public class Board extends JPanel{
         int x_scaled = 0, y_scaled = 0;
         double scale = 0.25;
         if (img != null) {
-            x_t = this.getWidth() / 2;
+            x_t = (this.getWidth() / 2) / img.getWidth();
             x_scaled = (int) ((img.getWidth() * scale) / 2.0);
-            y_t = this.getHeight() / 2;
+            y_t = (this.getHeight() / 2) / img.getWidth();
             y_scaled = (int) ((img.getHeight() * scale) / 2.0);
             affineTransform.translate(x_t - x_scaled, y_t - y_scaled);
             affineTransform.scale(scale, scale);
