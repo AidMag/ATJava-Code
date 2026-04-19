@@ -22,7 +22,7 @@ public class Board extends JPanel{
 
         // attempt to load the image.
         try {
-            File imageFile = new File("media/cakes.jpg");
+            File imageFile = new File("media/instrument-124.png");
             img = ImageIO.read(imageFile);
             setPreferredSize(new Dimension(img.getWidth(), img.getHeight()));
         } catch (Exception e) {
@@ -30,18 +30,18 @@ public class Board extends JPanel{
         }
     }
     
-    public void paintComponent(Graphics g) {
+     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         AffineTransform affineTransform = new AffineTransform();
         int x_t = 0, y_t = 0;
         int x_scaled = 0, y_scaled = 0;
-        double scale = 0.25;
+        double scale = 0.5;
         if (img != null) {
-            x_t = (this.getWidth() / 2) / img.getWidth();
-            x_scaled = (int) ((img.getWidth() * scale) / 2.0);
-            y_t = (this.getHeight() / 2) / img.getWidth();
-            y_scaled = (int) ((img.getHeight() * scale) / 2.0);
+            x_t = this.getWidth() / 4;
+            x_scaled = (int) ((img.getWidth() * scale) / 4.0);
+            y_t = this.getHeight() / 4;
+            y_scaled = (int) ((img.getHeight() * scale) / 4.0);
             affineTransform.translate(x_t - x_scaled, y_t - y_scaled);
             affineTransform.scale(scale, scale);
             g2d.drawImage(img, affineTransform, null);
@@ -50,4 +50,5 @@ public class Board extends JPanel{
             g2d.drawString("Unable to load image!", 25, 25);
         }
     }
+
 }
