@@ -62,12 +62,22 @@ public class SoundClip {
    }
 
    public void play(boolean wait) {
-    
+    play();
+       if (clip != null && wait) {
+           long msec = clip.getMicrosecondLength() / 1000;
+           try {
+               Thread.sleep(msec);
+           } catch (InterruptedException e) {
+               System.err.println(e.getMessage());
+           }
+       }
    }
 
    public void close() {
-       // implement method here.
+       if (clip != null) {
+           clip.stop();
+           clip.close();
+       }
    }
 
 }
-
