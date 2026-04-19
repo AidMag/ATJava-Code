@@ -8,28 +8,29 @@ public class IntroNumb {
    public static void main(String[] args) throws LineUnavailableException {
        ToneGenerator tg = new ToneGenerator();
        tg.init();
-       tg.play(Note.C5, 200);
+       tg.play(Note.C4$, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.E5, 200);
+       tg.play(Note.E4, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.C5, 200);
+       tg.play(Note.C4$, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.F5, 600);
+       tg.play(Note.F4$, 600);
        tg.play(Note.REST, 2);
-       tg.play(Note.A5, 600);
+       tg.play(Note.A4, 600);
        tg.play(Note.REST, 2);
-       tg.play(Note.G5, 1200);
-       tg.play(Note.C5, 200);
+       tg.play(Note.G4$, 1200);
        tg.play(Note.REST, 2);
-       tg.play(Note.E5, 200);
+       tg.play(Note.C4$, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.C5, 200);
+       tg.play(Note.E4, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.A5, 600);
+       tg.play(Note.C4$, 200);
        tg.play(Note.REST, 2);
-       tg.play(Note.G5, 600);
+       tg.play(Note.A4, 600);
        tg.play(Note.REST, 2);
-       tg.play(Note.E5, 1200);
+       tg.play(Note.G4$, 600);
+       tg.play(Note.REST, 2);
+       tg.play(Note.E4, 1200);
        tg.close();
    }
 }
