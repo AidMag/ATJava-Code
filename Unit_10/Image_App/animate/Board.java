@@ -10,7 +10,7 @@ import java.io.File;
 import java.awt.image.BufferedImage;
 
 
-public class Board extends JPanel{
+public class Board extends JPanel {
     private final int B_WIDTH = 350;
     private final int B_HEIGHT = 350;
     private BufferedImage img;
@@ -29,26 +29,24 @@ public class Board extends JPanel{
             System.err.println(e.getMessage());
         }
     }
-    
-     public void paintComponent(Graphics g) {
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        double scale = 0.5;
+
         Graphics2D g2d = (Graphics2D) g;
         AffineTransform affineTransform = new AffineTransform();
-        int x_t = 0, y_t = 0;
-        int x_scaled = 0, y_scaled = 0;
-        double scale = 0.5;
+
         if (img != null) {
-            x_t = this.getWidth() / 4;
-            x_scaled = (int) ((img.getWidth() * scale) / 4.0);
-            y_t = this.getHeight() / 4;
-            y_scaled = (int) ((img.getHeight() * scale) / 4.0);
-            affineTransform.translate(x_t - x_scaled, y_t - y_scaled);
-            affineTransform.scale(scale, scale);
-            g2d.drawImage(img, affineTransform, null);
-        } else {
-            g2d.setColor(Color.BLUE);
-            g2d.drawString("Unable to load image!", 25, 25);
+            if (img != null) {
+                affineTransform.translate((this.getWidth() - (img.getWidth() * scale)), (this.getHeight() - (img.getHeight() * scale)));
+                affineTransform.scale(scale, scale);
+
+                g2d.drawImage(img, affineTransform, null);
+            } else {
+                g2d.setColor(Color.BLUE);
+                g2d.drawString("Unable to load image!", 25, 25);
+            }
         }
     }
-
 }
