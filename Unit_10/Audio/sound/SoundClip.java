@@ -14,6 +14,7 @@ public class SoundClip {
    private File audioFile;
    private AudioInputStream audioIn;
    private Clip clip;
+   private boolean loop;
 
    public SoundClip(String path) {
        filePath = path;
@@ -43,7 +44,8 @@ public class SoundClip {
    }
 
    public void play() {
-       if (clip != null) {
+       while (loop) {
+        if (clip != null) {
            // if the clip is running, stop it before playing it again.
            if (clip.isRunning()) {
                clip.stop();
@@ -59,10 +61,11 @@ public class SoundClip {
            clip.setFramePosition(0);
            clip.start();
        }
+    }
    }
 
    public void play(boolean wait) {
-    play();
+       play();
        if (clip != null && wait) {
            long msec = clip.getMicrosecondLength() / 1000;
            try {
@@ -78,6 +81,18 @@ public class SoundClip {
            clip.stop();
            clip.close();
        }
+   }
+
+   public boolean getloop() {
+       return loop;
+   }
+  
+   public void setloop(boolean a) {
+       this.loop = a;
+   }
+   
+   public void stop() {
+       this.loop = false;
    }
 
 }
