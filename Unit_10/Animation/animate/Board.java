@@ -24,7 +24,11 @@ public class Board extends JPanel{
     private Timer timer;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
-    private int xSpeed = 2;
+    private int xSpeed = 1, ySpeed = 1;
+    private BufferedImage img;
+    private double rotateSpeed = 0.25;
+    private double rotate = 0;
+
 
     private class ScheduledUpdate extends TimerTask {
        /*
@@ -36,7 +40,19 @@ public class Board extends JPanel{
            if (x > B_WIDTH) {
                x = 0;
            }
+           y += ySpeed;
+           if (y > B_HEIGHT) {
+               y = 0;
+           }
+           rotate += rotateSpeed;
+           if (rotate > 360) {
+               rotate = rotate - 360;
+           }
+
            repaint();
+           System.out.println("rotate = " + rotate);
+           System.out.println("x = " + x);
+           System.out.println("y = " + y);
        }
     }
 
@@ -46,12 +62,21 @@ public class Board extends JPanel{
        // set background color of the board and default size.
        setBackground(Color.CYAN);
        setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+
+        try {
+            File imageFile = new File("media/Andy.png");
+            img = ImageIO.read(imageFile);
+            setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
       
        // set the initial position of the ball
        // to be on the left side of the content area
        // and in the middle of the content area.
        x = 0;
-       y = B_HEIGHT / 2;
+       y = 0;
+       rotate = (int) Math.toRadians(5);
 
        timer = new Timer();
        timer.scheduleAtFixedRate(new ScheduledUpdate(),
@@ -64,11 +89,11 @@ public class Board extends JPanel{
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         AffineTransform affineTransform = new AffineTransform();
-        affineTransform.translate(x - DIAMETER / 2, y - DIAMETER / 2);
+        affineTransform.translate(x - img.getWidth() / 2.0, y - img.getHeight() / 2.0);
+        affineTransform.rotate(rotate, img.getWidth() / 2.0, img.getHeight() / 2.0);
 
-        Ellipse2D ellipse = new Ellipse2D.Double(0, 0, DIAMETER, DIAMETER);
-        Shape transformedShape = affineTransform.createTransformedShape(ellipse);
-        g2d.setColor(Color.MAGENTA);
-        g2d.fill(transformedShape);
+        if (img != null) {
+            g2d.drawImage(img, affineTransform, null);
+        }
     }
 }
