@@ -13,7 +13,7 @@ import java.util.Timer;
 import sound.SoundClip;
 
 
-public class Board extends JPanel implements KeyListener {
+public class Board extends JPanel implements KeyListener, {
     private final int B_WIDTH = 720;
     private final int B_HEIGHT = 720;
     private int x = 0;

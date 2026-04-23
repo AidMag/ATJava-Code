@@ -59,9 +59,9 @@ public class Board extends JPanel{
 
 
     public Board() {
-       // set background color of the board and default size.
-       setBackground(Color.CYAN);
-       setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        // set background color of the board and default size.
+        setBackground(Color.CYAN);
+        setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
 
         try {
             File imageFile = new File("media/Andy.png");
@@ -70,17 +70,31 @@ public class Board extends JPanel{
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-      
-       // set the initial position of the ball
-       // to be on the left side of the content area
-       // and in the middle of the content area.
-       x = 0;
-       y = 0;
-       rotate = (int) Math.toRadians(5);
 
-       timer = new Timer();
-       timer.scheduleAtFixedRate(new ScheduledUpdate(),
-               INITIAL_DELAY, PERIOD_INTERVAL);
+        // set the initial position of the ball
+        // to be on the left side of the content area
+        // and in the middle of the content area.
+        x = 0;
+        y = 0;
+        rotate = (int) Math.toRadians(5);
+        xSpeed = random(1, 5);
+        ySpeed = random(1, 5);
+
+        try {
+            File imageFile = new File("media/Andy.png");
+            img = ImageIO.read(imageFile);
+            setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new ScheduledUpdate(),
+                INITIAL_DELAY, PERIOD_INTERVAL);
+    }
+    
+    private int random(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
     }
 
 

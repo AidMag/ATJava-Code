@@ -79,6 +79,15 @@ public class Board extends JPanel{
        xSpeed = random(1, 5);
        ySpeed = random(1, 5);
 
+        try {
+            File imageFile = new File("media/Andy.png");
+            img = ImageIO.read(imageFile);
+            setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+
        timer = new Timer();
        timer.scheduleAtFixedRate(new ScheduledUpdate(),
                INITIAL_DELAY, PERIOD_INTERVAL);
@@ -97,4 +106,9 @@ public class Board extends JPanel{
             g2d.drawImage(img, affineTransform, null);
         }
     }
+
+    private int random(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
+    }
+    
 }
