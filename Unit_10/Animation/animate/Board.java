@@ -6,10 +6,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
 import java.io.File;
 import java.awt.image.BufferedImage;
-import java.awt.Shape;
 import java.util.Timer;
 import java.util.TimerTask;
 import sound.SoundClip;
@@ -18,9 +16,8 @@ import sound.SoundClip;
 public class Board extends JPanel{
     private final int B_WIDTH = 720;
     private final int B_HEIGHT = 720;
-    private int x = 0;
-    private int y = 0;
-    private final int DIAMETER = 20;
+    private int x = 360;
+    private int y = 360;
     private Timer timer;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
@@ -28,7 +25,7 @@ public class Board extends JPanel{
     private BufferedImage img;
     private double rotateSpeed = 0.25;
     private double rotate = 0;
-    private SoundClip sitar;
+    private SoundClip sitar, ow;
 
 
     private class ScheduledUpdate extends TimerTask {
@@ -38,12 +35,14 @@ public class Board extends JPanel{
         */
        public void run() {
            x += xSpeed;
-           if (x > B_WIDTH) {
-               x = 0;
+           if (x > B_WIDTH || x < 0) {
+               xSpeed = xSpeed * -1;
+               ow.play();
            }
            y += ySpeed;
-           if (y > B_HEIGHT) {
-               y = 0;
+           if (y > B_HEIGHT || y < 0) {
+               ySpeed = ySpeed * -1;
+               ow.play();
            }
            rotate += rotateSpeed;
            if (rotate > 360) {
@@ -51,9 +50,9 @@ public class Board extends JPanel{
            }
 
            repaint();
-           System.out.println("rotate = " + rotate);
-           System.out.println("x = " + x);
-           System.out.println("y = " + y);
+        //    System.out.println("rotate = " + rotate);
+        //    System.out.println("x = " + x);
+        //    System.out.println("y = " + y);
        }
     }
 
@@ -75,15 +74,21 @@ public class Board extends JPanel{
         // set the initial position of the ball
         // to be on the left side of the content area
         // and in the middle of the content area.
-        x = 0;
-        y = 0;
+        x = 360;
+        y = 360;
         xSpeed = random(1, 5);
         ySpeed = random(1, 5);
 
         sitar = new SoundClip("media/sitar.wav");
 
         sitar.open();
+        sitar.setloop(true);
         sitar.play();
+
+        ow = new SoundClip("media/ow.wav");
+        ow.open();
+
+
 
         try {
             File imageFile = new File("media/Andy.png");
@@ -108,6 +113,7 @@ public class Board extends JPanel{
         AffineTransform affineTransform = new AffineTransform();
         affineTransform.translate(x - img.getWidth() / 2.0, y - img.getHeight() / 2.0);
         affineTransform.rotate(rotate, img.getWidth() / 2.0, img.getHeight() / 2.0);
+
 
         if (img != null) {
             g2d.drawImage(img, affineTransform, null);

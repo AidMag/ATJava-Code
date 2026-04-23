@@ -61,9 +61,8 @@ public class SoundClip {
         }
         if (loop) {
            clip.loop(Clip.LOOP_CONTINUOUSLY);
-        }
-      
-}
+        }   
+    }
 
    public void play(boolean wait) {
        play();
@@ -89,7 +88,15 @@ public class SoundClip {
    }
   
    public void setloop(boolean loop) {
+       if (clip == null) {
+           return;
+        }
        this.loop = loop;
+       if (loop) {
+           clip.loop(Clip.LOOP_CONTINUOUSLY);
+       } else {
+           clip.loop(0);
+       }
    }
    
    public void stop() {
