@@ -76,7 +76,8 @@ public class Board extends JPanel{
        // and in the middle of the content area.
        x = 0;
        y = 0;
-       rotate = (int) Math.toRadians(5);
+       xSpeed = random(1, 5);
+       ySpeed = random(1, 5);
 
        timer = new Timer();
        timer.scheduleAtFixedRate(new ScheduledUpdate(),
