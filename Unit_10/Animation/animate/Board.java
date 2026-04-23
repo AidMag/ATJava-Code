@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 import java.awt.Shape;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import sound.SoundClip;
 
 
 public class Board extends JPanel{
@@ -28,6 +28,7 @@ public class Board extends JPanel{
     private BufferedImage img;
     private double rotateSpeed = 0.25;
     private double rotate = 0;
+    private SoundClip sitar;
 
 
     private class ScheduledUpdate extends TimerTask {
@@ -76,9 +77,13 @@ public class Board extends JPanel{
         // and in the middle of the content area.
         x = 0;
         y = 0;
-        rotate = (int) Math.toRadians(5);
         xSpeed = random(1, 5);
         ySpeed = random(1, 5);
+
+        sitar = new SoundClip("media/sitar.wav");
+
+        sitar.open();
+        sitar.play();
 
         try {
             File imageFile = new File("media/Andy.png");
@@ -96,8 +101,6 @@ public class Board extends JPanel{
     private int random(int min, int max) {
         return (int) (Math.random() * (max - min) + min);
     }
-
-
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
