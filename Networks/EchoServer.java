@@ -33,6 +33,7 @@ public class EchoServer {
         ) {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
+                System.out.println("From client: " + inputLine);
                 out.println(inputLine);
             }
 
