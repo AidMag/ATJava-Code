@@ -11,13 +11,13 @@ public class WriteData {
         String fname, lname;
         int id, salary;
 
-        System.out.println("Enter Employee First Name: ");
+        System.out.print("Enter Employee First Name: ");
         fname = in.next();
-        System.out.println("Enter Employee Last Name: ");
+        System.out.print("Enter Employee Last Name: ");
         lname = in.next();
-        System.out.println("Enter Employee ID Number: ");
+        System.out.print("Enter Employee ID Number: ");
         id = in.nextInt();
-        System.out.println("Enter Employee Salary: ");
+        System.out.print("Enter Employee Salary: ");
         salary = in.nextInt();
         Employee employee = new Employee(fname, lname, id, salary);
         
