@@ -12,8 +12,8 @@ public class ReadData {
         try (FileInputStream fileInputStream = new FileInputStream(filepath);
                 ObjectInputStream dataInputStream = new ObjectInputStream(fileInputStream);) {
 
-            Employee object = (Employee) dataInputStream.readObject();
-            object.displayInfo();
+            Employee employee = (Employee) dataInputStream.readObject();
+            employee.displayInfo();
             
         } catch (ClassNotFoundException e) {
             System.err.println("Error, unable to find data file.");
