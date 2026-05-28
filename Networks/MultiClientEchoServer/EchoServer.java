@@ -1,9 +1,10 @@
+package MultiClientEchoServer;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import Server.ClientHandler;
+import Chat.ClientHandler;
 
 public class EchoServer {
     public static void main(String[] args) {
