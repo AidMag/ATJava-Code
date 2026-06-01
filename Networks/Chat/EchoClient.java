@@ -34,16 +34,21 @@ public class EchoClient {
         try (
                 Socket socket = new Socket(server_ip, portNumber);
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                //BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
         ) {
+            // display connection info.
+            System.out.println(
+                    "Connected to server " + socket.getInetAddress().getHostAddress() + " on port " + socket.getPort());
+            
+            // launch thread to handle messages from server.
+            MessageHandler messageHandler = new MessageHandler(socket);
+            new Thread(messageHandler).start();
+
             String inputString;
             while ((inputString = stdIn.readLine()) != null) {
                 //send info to the server.
                 out.println(inputString);
-
-                // read info from the server.
-                System.out.println("Echo: " + in.readLine());
             }
             
         } catch (UnknownHostException e) {
